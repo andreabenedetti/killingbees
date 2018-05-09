@@ -86,7 +86,7 @@
       var simulation = d3.forceSimulation(data)
       .force("x", d3.forceX( function(d) { return x(d.value); }).strength(1) )
       // .force("y", d3.forceY( height / 2 ))
-      .force("y", d3.forceY( function(d) { console.log(y2(d.health)); return y2(d.location); }).strength(1) )
+      .force("y", d3.forceY( function(d) { return y2(d.location); }).strength(1) )
       .force("collide", d3.forceCollide()
         .radius( function(d) { 
           return size(d.kills) + 1 
@@ -102,7 +102,7 @@
         g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(20));
+      .call(d3.axisBottom(x).ticks(100));
 
       g.append("g")
       .attr("class", "axis axis--y")
@@ -127,6 +127,7 @@
       .attr("fill", function(d) { return colors(d.data.health); })
       .attr("stroke", "#000000")
       .attr("stroke-width", 0.5)
+      
     });
 
     function type(d) {
