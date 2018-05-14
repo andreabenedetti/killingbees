@@ -6,10 +6,11 @@ let width = window.innerWidth-17,
     .attr('width', width)
     .attr('height', height)
 
-
+    // parse values in dataset
     let parseDate = d3.timeParse("%Y-%m-%d");
     let formatDate = d3.timeFormat("%Y-%m-%d");
 
+    // various scales, could be optimized
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
     .range(["#f44e38","#7a7a7a","#FFFFFF","#d3d3d3"]);
@@ -68,6 +69,8 @@ let width = window.innerWidth-17,
     let data_setX = "value";
     let xAxis = dateAxis;
 
+    // Parse dataset
+
     d3.csv("shootings.csv", function(error, data) {
       if (error) throw error;
 
@@ -96,6 +99,8 @@ let width = window.innerWidth-17,
 
         ));
 
+      // start ticks for animations and transitions
+
       function tick(){
 
         d3.selectAll('.circ')
@@ -104,14 +109,18 @@ let width = window.innerWidth-17,
 
       };
 
+      // Draw axes
+
       svg.append("g")
-      .call(dateAxis)
+      .call(killAxis)
       .classed("xAxis", true);
 
       svg.append("g")
       .attr("transform","translate(" + ( width - padding ) + ",0)")
       .call(raceAxis)
       .classed("yAxis", true);
+
+      // Draw circles
 
       svg.selectAll('.circ')
       .data(data)
@@ -123,13 +132,11 @@ let width = window.innerWidth-17,
       .attr("stroke", "rgba(0,0,0,.45)")
       .attr("stroke-width", 1)
 
+      // Start force layout
       let simulation = d3.forceSimulation(data)
-
       .force('x', d3.forceX( function(d){
         return x(d[data_setX])
       }).strength(0.99))
-
-    // .force('x', d3.forceX( function(d) { return x(d.value); }).strength(0.05)) 
     .force('y', d3.forceY( function(d){
       return y3(d[data_set])
     }).strength(0.99))
@@ -147,16 +154,21 @@ let width = window.innerWidth-17,
       simulation.alphaDecay(0.1);
     }, 10000);
 
-    let buttons = d3.select('body').append('div');
-    buttons.append('button').text('Stato mentale').attr('value', 'health').classed('d_sel', true)
-    buttons.append('button').text('Tipologia di luogo').attr('value', 'location').classed('d_sel', true)
-    buttons.append('button').text('Genere').attr('value', 'gender').classed('d_sel', true)
-    buttons.append('button').text('Etnia').attr('value', 'race').classed('d_sel', true)
+    // Draw UI buttons
 
-    buttons.append('button').text('Età').attr('value', 'age').classed('b_sel', true)
-    buttons.append('button').text('Vittime totali').attr('value', 'kills').classed('b_sel', true)
-    buttons.append('button').text('Linea del tempo').attr('value', 'value').classed('b_sel', true)
+    let yButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
+    yButtons.append('button').text('Stato mentale').attr('value', 'health').classed('d_sel', true)
+    yButtons.append('button').text('Tipologia di luogo').attr('value', 'location').classed('d_sel', true)
+    yButtons.append('button').text('Genere').attr('value', 'gender').classed('d_sel', true)
+    yButtons.append('button').text('Etnia').attr('value', 'race').classed('d_sel', true)
 
+    let xButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
+    xButtons.append('button').text('Età').attr('value', 'age').classed('b_sel', true)
+    xButtons.append('button').text('Vittime totali').attr('value', 'kills').classed('b_sel', true)
+    xButtons.append('button').text('Linea del tempo').attr('value', 'value').classed('b_sel', true)
+
+
+    // make buttons interactive, vertical categories
     d3.selectAll('.d_sel').on('click', function(){
 
       data_set = this.value;
@@ -200,6 +212,7 @@ let width = window.innerWidth-17,
       }, 10000);
     })
 
+    // make buttons interactive, horizontal values
     d3.selectAll('.b_sel').on('click', function(){
 
       xAxis = this.scale;
