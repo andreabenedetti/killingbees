@@ -14,7 +14,7 @@ body {
 .navbar {
   background: #EFE9E7;
   color: black;
-  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .navbar a {
@@ -23,6 +23,15 @@ body {
 
 h3 {
   font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.spaceY {
+  color: tomato;
+}
+
+.spaceX {
+  color: #0B5345;
 }
 
 svg {
@@ -63,43 +72,58 @@ svg {
   stroke-dasharray: 2,2;
 }
 
+.tick text {
+  fill: #777;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 1rem 0 1rem 0;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
-button {
-  background: tomato;
-  padding: 0.2rem 0.5rem;
-  color: white;
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: 3px;
-  cursor: pointer;
+.buttons p {
   margin-right: 0.5rem;
 }
 
-button:focus {
-  background: crimson;
+button {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-button:selected {
-  background: crimson;
+button:focus {
+  outline: none;
 }
 
 .b_sel {
-  background: teal;
+  border: 1px solid teal;
+  background: #EFE9E7;
+  color: teal;
 }
 
-.b_sel:focus {
-  background: #0B5345;
+.b_sel:hover {
+  background: rgba(0, 150, 136, 0.3);
+}
+
+.d_sel {
+  border: 1px solid tomato;
+  background: #EFE9E7;
+  color: tomato;
+}
+
+.d_sel:hover {
+  background: rgba(244, 67, 54, 0.3);
 }
 
 .selected {
-  background: black;
-}
-
-#killingbees {
-  padding: 2rem 0;
+  color: white;
 }

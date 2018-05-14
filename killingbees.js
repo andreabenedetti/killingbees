@@ -60,14 +60,14 @@ let svg = d3.select('#killingbees').append('svg')
     .tickFormat(d3.timeFormat("%Y"))
     .tickSize(height - (padding * 0.3));
 
-    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (3.5*padding));
-    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (3.5*padding));
-    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (3.5*padding));
-    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (3.5*padding));
+    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
+    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
+    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
+    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
 
     // starting visualization with:
-    let data_set = "race";
-    let data_setX = "kills";
+    let data_set = "health";
+    let data_setX = "value";
 
     // Parse dataset
 
@@ -112,12 +112,12 @@ let svg = d3.select('#killingbees').append('svg')
       // Draw axes
 
       svg.append("g")
-      .call(killAxis)
+      .call(dateAxis)
       .classed("xAxis", true);
 
       svg.append("g")
       .attr("transform","translate(" + ( width - padding ) + ",0)")
-      .call(raceAxis)
+      .call(healthAxis)
       .classed("yAxis", true);
 
       // Draw circles
@@ -135,15 +135,14 @@ let svg = d3.select('#killingbees').append('svg')
       // Start force layout
       let simulation = d3.forceSimulation(data)
       .force('x', d3.forceX( function(d){
-        return x2(d[data_setX])
+        return x(d[data_setX])
       }).strength(0.99))
       .force('y', d3.forceY( function(d){
-        return y5(d[data_set])
+        return y3(d[data_set])
       }).strength(0.99))
       .force('collide', d3.forceCollide(function(d) { 
         return size(d.kills) + 1 
-      })
-      .iterations(16))
+      }).iterations(16))
       .alphaDecay(0)
       .alpha(0.12)
       .on('tick', tick) 
@@ -157,19 +156,24 @@ let svg = d3.select('#killingbees').append('svg')
     // Draw UI buttons
 
     let yButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    yButtons.append('button').text('Stato mentale').attr('value', 'health').classed('d_sel', true)
-    yButtons.append('button').text('Tipologia di luogo').attr('value', 'location').classed('d_sel', true)
-    yButtons.append('button').text('Genere').attr('value', 'gender').classed('d_sel', true)
-    yButtons.append('button').text('Etnia').attr('value', 'race').classed('d_sel', true)
+    yButtons.append('p').text('dividi per')
+    yButtons.append('button').text('stato mentale').attr('value', 'health').classed('d_sel', true)
+    yButtons.append('button').text('tipologia di luogo').attr('value', 'location').classed('d_sel', true)
+    yButtons.append('button').text('genere').attr('value', 'gender').classed('d_sel', true)
+    yButtons.append('button').text('etnia').attr('value', 'race').classed('d_sel', true)
 
     let xButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    xButtons.append('button').text('Età').attr('value', 'age').classed('b_sel', true)
-    xButtons.append('button').text('Vittime totali').attr('value', 'kills').classed('b_sel', true)
-    xButtons.append('button').text('Linea del tempo').attr('value', 'value').classed('b_sel', true)
+    xButtons.append('p').text('distribuisci per')
+    xButtons.append('button').text('età').attr('value', 'age').classed('b_sel', true)
+    xButtons.append('button').text('vittime totali').attr('value', 'kills').classed('b_sel', true)
+    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true)
 
 
     // make buttons interactive, vertical categories
     d3.selectAll('.d_sel').on('click', function(){
+
+      d3.selectAll('.d_sel').classed('selected', false).style('background','transparent')
+      d3.select(this).classed('selected', true).style('background','tomato')
 
       data_set = this.value;
 
@@ -177,19 +181,72 @@ let svg = d3.select('#killingbees').append('svg')
 
       if (data_set === "health") {
         d3.selectAll(".spaceY").text("Stato mentale dell'attentatore")
-        d3.select(".yAxis")
+        let axisSelection = d3.select(".yAxis")
           .call(healthAxis)
           .classed("yAxis", true);
+
+          axisSelection.selectAll('.tick text')
+          .text(function(d){
+            switch(d){
+              case "Yes":
+                return "malato";
+                break;
+              case "No":
+                return "sano";
+                break;
+              case "Unclear":
+                return "incerto";
+                break;
+              case "Unknown":
+                return "sconosciuto";
+                break;
+            }
+          })
       } else if(data_set === "location") {
         d3.selectAll(".spaceY").text("Tipologia di luogo dell'attentato")
-        d3.select(".yAxis")
+        let axisSelection = d3.select(".yAxis")
           .call(locationAxis)
           .classed("yAxis", true);
+        axisSelection.selectAll('.tick text')
+          .text(function(d){
+            switch(d){
+              case "Open":
+                return "all'aperto";
+                break;
+              case "Open+Close":
+                return "aperto e chiuso";
+                break;
+              case "Close":
+                return "al chiuso";
+                break;
+              case "na":
+                return "non disponibile";
+                break;
+            }
+          })
       }else if(data_set === "gender") {
         d3.selectAll(".spaceY").text("Genere dell'attentatore")
-        d3.select(".yAxis")
+        let axisSelection = d3.select(".yAxis")
           .call(genderAxis)
           .classed("yAxis", true);
+
+          axisSelection.selectAll('.tick text')
+          .text(function(d){
+            switch(d){
+              case "Male":
+                return "uomo";
+                break;
+              case "Female":
+                return "donna";
+                break;
+              case "Male/Female":
+                return "uomo e donna";
+                break;
+              case "Unknown":
+                return "non disponibile";
+                break;
+            }
+          })
       }else {
         d3.selectAll(".spaceY").text("Etnia dell'attentatore")
         d3.select(".yAxis")
@@ -211,27 +268,30 @@ let svg = d3.select('#killingbees').append('svg')
       }))
 
       simulation
-      .alphaDecay(0)
-      .alpha(0.12)
+      .alphaDecay(0.01)
+      .alpha(0.8)
       .restart()
 
-      clearTimeout(init_decay);
+      // clearTimeout(init_decay);
 
-      init_decay = setTimeout(function(){
-        console.log('init alpha decay');
-        simulation.alphaDecay(0.1);
-      }, 10000);
+      // init_decay = setTimeout(function(){
+      //   console.log('init alpha decay');
+      //   simulation.alphaDecay(0.1);
+      // }, 10000);
     })
 
     // make buttons interactive, horizontal values
     d3.selectAll('.b_sel').on('click', function(){
+
+      d3.selectAll('.b_sel').classed('selected', false).style('background','transparent')
+      d3.select(this).classed('selected', true).style('background','teal')
 
       data_setX = this.value;
 
       console.log(data_setX)
 
       if (data_setX === "value") {
-        d3.selectAll(".spaceX").text("giorno dell'evento")
+        d3.selectAll(".spaceX").text("data dell'evento")
         d3.select(".xAxis")
           .call(dateAxis)
           .classed("xAxis", true);
@@ -258,16 +318,16 @@ let svg = d3.select('#killingbees').append('svg')
       }))
 
       simulation
-      .alphaDecay(0)
-      .alpha(0.12)
+      .alphaDecay(0.01)
+      .alpha(0.8)
       .restart()
 
-      clearTimeout(init_decay);
+      // clearTimeout(init_decay);
 
-      init_decay = setTimeout(function(){
-        console.log('init alpha decay');
-        simulation.alphaDecay(0.1);
-      }, 10000);
+      // init_decay = setTimeout(function(){
+      //   console.log('init alpha decay');
+      //   simulation.alphaDecay(0.1);
+      // }, 10000);
     })
 
   })
