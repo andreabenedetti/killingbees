@@ -127,3 +127,9 @@ button:focus {
 .selected {
   color: white;
 }
+
+.source {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #777;
+}
