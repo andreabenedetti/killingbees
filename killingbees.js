@@ -269,7 +269,7 @@ let svg = d3.select('#killingbees').append('svg')
 
       simulation
       .alphaDecay(0.01)
-      .alpha(0.8)
+      .alpha(0.5)
       .restart()
 
       // clearTimeout(init_decay);
@@ -319,7 +319,7 @@ let svg = d3.select('#killingbees').append('svg')
 
       simulation
       .alphaDecay(0.01)
-      .alpha(0.8)
+      .alpha(0.5)
       .restart()
 
       // clearTimeout(init_decay);
