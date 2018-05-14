@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gocce</title>
+	<title>Omicidi di massa</title>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <style type="text/css">
+body {
+	font-family: -apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Roboto,
+		Oxygen-Sans,
+		Ubuntu,
+		Cantarell,
+		"Helvetica Neue",
+		sans-serif;
+}
+
 svg {
-	background: #f5f5f5;
-	border-radius: 4px;
-	border: 1px solid rgba(0,0,0,.2);
 	margin: auto;
 }
 
@@ -42,11 +51,19 @@ button:selected {
 	background: crimson;
 }
 
+.b_sel {
+	background: teal;
+}
+
+.b_sel:focus {
+	background: #0B5345;
+}
+
 </style>
 
 </head>
 <body>
-
+<h2><em class="spaceY">health</em> by <em class="spaceX">value</em></h2>
 
 
 
@@ -54,7 +71,7 @@ button:selected {
 
 var width = window.innerWidth-17,
 	height = 700,
-	padding = 30;	
+	padding = 50;	
 
 var svg = d3.select('body').append('svg')
 			.attr('width', width)
@@ -71,19 +88,35 @@ var svg = d3.select('body').append('svg')
     var x = d3.scaleTime()
     .range([0 + padding, width - padding]);
 
+    var x1 = d3.scaleLinear()
+    .range([0 + padding, width - padding]);
+
+    var x2 = d3.scaleLog()
+    .range([0 + padding, width - padding]);
+
+
+    let y0 = d3.scalePoint()
+    .domain( function(d) { 
+    	console.log(d.data)
+    	return d.data } )
 
     var y = d3.scaleLinear()
     .range([(0 + padding)*2, height - padding * 2]);
 
-    var y2 = d3.scaleBand()
+    var y2 = d3.scalePoint()
     .domain(["Open","Open+Close","Close","na"])
     .range([0 + padding, height - padding]);
 
-    var y3 = d3.scaleBand()
+    var y3 = d3.scalePoint()
     .domain(["Yes","No","Unclear","Unknown"])
-    .range([0 + padding, height -  padding]);
+    .range([0 + padding, height - padding]);
 
-    var y4 = d3.scaleLog()
+    var y4 = d3.scalePoint()
+    .domain(["Male","Female","Male/Female","Unknown"])
+    .range([0 + padding, height - padding]);
+
+    var y5 = d3.scalePoint()
+    .domain(["White","Asian","Asian American","Black","Latino","Native","Other","Unknown"])
     .range([0 + padding, height - padding]);
 
     var size = d3.scaleSqrt()
@@ -91,6 +124,7 @@ var svg = d3.select('body').append('svg')
 
 
 	var data_set = "health";
+	let data_setX = "value";
 
 	d3.csv("shootings.csv", function(error, data) {
       if (error) throw error;
@@ -100,6 +134,16 @@ var svg = d3.select('body').append('svg')
         d.value = +d.value;
         return d.value;
 
+      }));
+
+      x1.domain(d3.extent(data, function(d) { 
+      		d.age = +d.age;
+        	return d.age;
+      }));
+
+      x2.domain(d3.extent(data, function(d) { 
+      		d.kills = +d.kills;
+        	return d.kills;
       }));
 
       // console.log(JSON.stringify(data, null, "\t"));
@@ -125,25 +169,28 @@ var svg = d3.select('body').append('svg')
 		.attr('cx', function(d){return x(d.value);})
 		.attr('cy', function(){return height/2;})
 		.attr("fill", function(d) { return colors(d.health); })
-		.attr("stroke", "rgba(0,0,0,.4)")
-      	.attr("stroke-width", 0.5)
+		.attr("stroke", "rgba(0,0,0,.45)")
+      	.attr("stroke-width", 1)
 
-      	svg.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(100));
-
+      // 	svg.append("g")
+      // .attr("class", "axis axis--x")
+      // .call(d3.axisBottom(x).ticks(100));
 
 
 	var simulation = d3.forceSimulation(data)
-		.force('x', d3.forceX( function(d) { return x(d.value); }).strength(0.05))	
+
+		.force('x', d3.forceX( function(d){
+				return x(d[data_setX])
+			}).strength(0.99))
+
+		// .force('x', d3.forceX( function(d) { return x(d.value); }).strength(0.05))	
 		.force('y', d3.forceY( function(d){
 				return y3(d[data_set])
 			}).strength(0.99))
 		.force('collide', d3.forceCollide(function(d) { 
           return size(d.kills) + 1 
         })
-        .iterations(16))
+        .iterations(8))
 		.alphaDecay(0)
 		.alpha(0.12)
 		.on('tick', tick)	
@@ -152,13 +199,17 @@ var svg = d3.select('body').append('svg')
 	init_decay = setTimeout(function(){
 		console.log('init alpha decay')
 		simulation.alphaDecay(0.1);
-	}, 8000);
+	}, 10000);
 
 	var buttons = d3.select('body').append('div');
 	buttons.append('button').text('Mental Health').attr('value', 'health').classed('d_sel', true)
 	buttons.append('button').text('Location').attr('value', 'location').classed('d_sel', true)
-	buttons.append('button').text('Latitude').attr('value', 'lat').classed('d_sel', true)
-	buttons.append('button').text('Age of shooter').attr('value', 'age').classed('d_sel', true)
+	buttons.append('button').text('Gender').attr('value', 'gender').classed('d_sel', true)
+	buttons.append('button').text('Race').attr('value', 'race').classed('d_sel', true)
+
+	buttons.append('button').text('Age').attr('value', 'age').classed('b_sel', true)
+	buttons.append('button').text('Total victims').attr('value', 'kills').classed('b_sel', true)
+	buttons.append('button').text('Timeline').attr('value', 'value').classed('b_sel', true)
 
 	d3.selectAll('.d_sel').on('click', function(){
 
@@ -166,14 +217,18 @@ var svg = d3.select('body').append('svg')
 
 		console.log(data_set)
 
+		d3.selectAll(".spaceY").text(data_set)
+
 		simulation.force('y', d3.forceY(function(d){
 
 			if (data_set === "location"){
 				return y2(d[data_set])
 			}else if(data_set === "health"){
 				return y3(d[data_set])
+			}else if(data_set === "gender"){
+				return y4(d[data_set])
 			}else {
-				return y(d[data_set])
+				return y5(d[data_set])
 			}
 		}))
 
@@ -187,14 +242,47 @@ var svg = d3.select('body').append('svg')
 		init_decay = setTimeout(function(){
 			console.log('init alpha decay');
 			simulation.alphaDecay(0.1);
-		}, 8000);
+		}, 10000);
+	})
+
+	d3.selectAll('.b_sel').on('click', function(){
+
+		data_setX = this.value;
+
+		console.log(data_setX)
+
+		d3.selectAll(".spaceX").text(data_setX)
+
+		simulation.force('x', d3.forceX(function(d){
+			if (data_setX === "value"){
+				return x(d[data_setX])
+			}else if(data_setX === "kills"){
+				return x2(d[data_setX])
+			}else {
+				return x1(d[data_setX])
+			}
+		}))
+
+		simulation
+			.alphaDecay(0)
+			.alpha(0.12)
+			.restart()
+
+		clearTimeout(init_decay);
+
+		init_decay = setTimeout(function(){
+			console.log('init alpha decay');
+			simulation.alphaDecay(0.1);
+		}, 10000);
 	})
 
 
 
 
 
-})		
+})
+
+
 
 </script>
 
