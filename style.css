@@ -1,0 +1,97 @@
+body {
+  background: #EFE9E7;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen-Sans,
+  Ubuntu,
+  Cantarell,
+  "Helvetica Neue",
+  sans-serif;
+}
+
+.navbar {
+  background: transparent;
+  color: black;
+}
+
+.navbar a {
+  color: tomato;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+svg {
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.domain {
+  stroke: #777;
+  display: none;
+}
+
+.tick text {
+  font-size: 0.8rem;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen-Sans,
+  Ubuntu,
+  Cantarell,
+  "Helvetica Neue",
+  sans-serif;
+}
+
+.yAxis .tick line, .xAxis .tick line {
+  stroke-width: 0.5;
+  stroke: #777;
+}
+
+.xAxis .tick line {
+  stroke-dasharray: 2,2;
+}
+
+button {
+  background: tomato;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.5rem;
+  color: white;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:focus {
+  background: crimson;
+}
+
+button:selected {
+  background: crimson;
+}
+
+.b_sel {
+  background: teal;
+}
+
+.b_sel:focus {
+  background: #0B5345;
+}
+
+.selected {
+  background: black;
+}
+
+#killingbees {
+  padding: 2rem 0;
+}
