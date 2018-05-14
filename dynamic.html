@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Omicidi di massa</title>
+	<meta charset="UTF-8">
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -16,6 +17,10 @@ body {
 		Cantarell,
 		"Helvetica Neue",
 		sans-serif;
+}
+
+h2 {
+	font-weight: normal;
 }
 
 svg {
@@ -63,7 +68,7 @@ button:selected {
 
 </head>
 <body>
-<h2><em class="spaceY">health</em> by <em class="spaceX">value</em></h2>
+<h2><b class="spaceY">Stato mentale dell'attentatore</b> distribuito per <b class="spaceX">giorno dell'attentato</b></h2>
 
 
 
@@ -172,9 +177,12 @@ var svg = d3.select('body').append('svg')
 		.attr("stroke", "rgba(0,0,0,.45)")
       	.attr("stroke-width", 1)
 
-      // 	svg.append("g")
-      // .attr("class", "axis axis--x")
-      // .call(d3.axisBottom(x).ticks(100));
+      	svg.append("g")
+      .call(d3.axisBottom(x).ticks());
+
+      svg.append("g")
+      .attr("transform","translate(" + width + ",0)")
+      .call(d3.axisLeft(y3).ticks(0));
 
 
 	var simulation = d3.forceSimulation(data)
@@ -190,7 +198,7 @@ var svg = d3.select('body').append('svg')
 		.force('collide', d3.forceCollide(function(d) { 
           return size(d.kills) + 1 
         })
-        .iterations(8))
+        .iterations(16))
 		.alphaDecay(0)
 		.alpha(0.12)
 		.on('tick', tick)	
@@ -202,14 +210,14 @@ var svg = d3.select('body').append('svg')
 	}, 10000);
 
 	var buttons = d3.select('body').append('div');
-	buttons.append('button').text('Mental Health').attr('value', 'health').classed('d_sel', true)
-	buttons.append('button').text('Location').attr('value', 'location').classed('d_sel', true)
-	buttons.append('button').text('Gender').attr('value', 'gender').classed('d_sel', true)
-	buttons.append('button').text('Race').attr('value', 'race').classed('d_sel', true)
+	buttons.append('button').text('Stato mentale').attr('value', 'health').classed('d_sel', true)
+	buttons.append('button').text('Tipologia di luogo').attr('value', 'location').classed('d_sel', true)
+	buttons.append('button').text('Genere').attr('value', 'gender').classed('d_sel', true)
+	buttons.append('button').text('Etnia').attr('value', 'race').classed('d_sel', true)
 
-	buttons.append('button').text('Age').attr('value', 'age').classed('b_sel', true)
-	buttons.append('button').text('Total victims').attr('value', 'kills').classed('b_sel', true)
-	buttons.append('button').text('Timeline').attr('value', 'value').classed('b_sel', true)
+	buttons.append('button').text('Età').attr('value', 'age').classed('b_sel', true)
+	buttons.append('button').text('Vittime totali').attr('value', 'kills').classed('b_sel', true)
+	buttons.append('button').text('Linea del tempo').attr('value', 'value').classed('b_sel', true)
 
 	d3.selectAll('.d_sel').on('click', function(){
 
@@ -217,7 +225,16 @@ var svg = d3.select('body').append('svg')
 
 		console.log(data_set)
 
-		d3.selectAll(".spaceY").text(data_set)
+		if (data_set === "health") {
+			d3.selectAll(".spaceY").text("Stato mentale dell'attentatore")
+
+		} else if(data_set === "location") {
+			d3.selectAll(".spaceY").text("Tipologia di luogo dell'attentato")
+		}else if(data_set === "gender") {
+			d3.selectAll(".spaceY").text("Genere dell'attentatore")
+		}else {
+			d3.selectAll(".spaceY").text("Etnia dell'attentatore")
+		}
 
 		simulation.force('y', d3.forceY(function(d){
 
@@ -251,7 +268,19 @@ var svg = d3.select('body').append('svg')
 
 		console.log(data_setX)
 
-		d3.selectAll(".spaceX").text(data_setX)
+		if (data_setX === "value") {
+			d3.selectAll(".spaceX").text("giorno dell'evento")
+			svg.select("axis")
+      			.call(d3.axisBottom(x).ticks(100));
+		}else if(data_setX === "age") {
+			d3.selectAll(".spaceX").text("età dell'attentatore")
+			svg.select("axis")
+      			.call(d3.axisBottom(x1).ticks(100));
+		}else {
+			d3.selectAll(".spaceX").text("numero di vittime")
+			svg.select("axis")
+      			.call(d3.axisBottom(x2).ticks(100));
+		}
 
 		simulation.force('x', d3.forceX(function(d){
 			if (data_setX === "value"){
