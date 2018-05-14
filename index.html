@@ -80,6 +80,10 @@
     background: #0B5345;
   }
 
+  .selected {
+    background: black;
+  }
+
 </style>
 
 </head>
@@ -200,7 +204,7 @@
 
       svg.append("g")
       .attr("transform","translate(" + width + ",0)")
-      .call(locationAxis)
+      .call(raceAxis)
       .classed("yAxis", true);
 
       svg.selectAll('.circ')
@@ -212,9 +216,6 @@
       .attr("fill", function(d) { return colors(d.health); })
       .attr("stroke", "rgba(0,0,0,.45)")
       .attr("stroke-width", 1)
-
-
-
 
       let simulation = d3.forceSimulation(data)
 
@@ -335,14 +336,7 @@
       }, 10000);
     })
 
-
-
-
-
   })
-
-
-
 </script>
 
 </body>
