@@ -1,10 +1,10 @@
 let width = window.innerWidth-17,
-    height = 700,
-    padding = 50; 
+height = 600,
+padding = 50; 
 
-    let svg = d3.select('#killingbees').append('svg')
-    .attr('width', width)
-    .attr('height', height)
+let svg = d3.select('#killingbees').append('svg')
+.attr('width', width)
+.attr('height', height)
 
     // parse values in dataset
     let parseDate = d3.timeParse("%Y-%m-%d");
@@ -60,14 +60,14 @@ let width = window.innerWidth-17,
     .tickFormat(d3.timeFormat("%Y"))
     .tickSize(height - (padding * 0.3));
 
-    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - padding);
-    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - padding);
-    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - padding);
+    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (3.5*padding));
+    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (3.5*padding));
+    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (3.5*padding));
     let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (3.5*padding));
 
-    let data_set = "health";
-    let data_setX = "value";
-    let xAxis = dateAxis;
+    // starting visualization with:
+    let data_set = "race";
+    let data_setX = "kills";
 
     // Parse dataset
 
@@ -135,24 +135,24 @@ let width = window.innerWidth-17,
       // Start force layout
       let simulation = d3.forceSimulation(data)
       .force('x', d3.forceX( function(d){
-        return x(d[data_setX])
+        return x2(d[data_setX])
       }).strength(0.99))
-    .force('y', d3.forceY( function(d){
-      return y3(d[data_set])
-    }).strength(0.99))
-    .force('collide', d3.forceCollide(function(d) { 
-      return size(d.kills) + 1 
-    })
-    .iterations(16))
-    .alphaDecay(0)
-    .alpha(0.12)
-    .on('tick', tick) 
+      .force('y', d3.forceY( function(d){
+        return y5(d[data_set])
+      }).strength(0.99))
+      .force('collide', d3.forceCollide(function(d) { 
+        return size(d.kills) + 1 
+      })
+      .iterations(16))
+      .alphaDecay(0)
+      .alpha(0.12)
+      .on('tick', tick) 
 
-    let init_decay; 
-    init_decay = setTimeout(function(){
-      console.log('init alpha decay')
-      simulation.alphaDecay(0.1);
-    }, 10000);
+      let init_decay; 
+      init_decay = setTimeout(function(){
+        console.log('init alpha decay')
+        simulation.alphaDecay(0.1);
+      }, 10000);
 
     // Draw UI buttons
 
@@ -177,13 +177,24 @@ let width = window.innerWidth-17,
 
       if (data_set === "health") {
         d3.selectAll(".spaceY").text("Stato mentale dell'attentatore")
-        
+        d3.select(".yAxis")
+          .call(healthAxis)
+          .classed("yAxis", true);
       } else if(data_set === "location") {
         d3.selectAll(".spaceY").text("Tipologia di luogo dell'attentato")
+        d3.select(".yAxis")
+          .call(locationAxis)
+          .classed("yAxis", true);
       }else if(data_set === "gender") {
         d3.selectAll(".spaceY").text("Genere dell'attentatore")
+        d3.select(".yAxis")
+          .call(genderAxis)
+          .classed("yAxis", true);
       }else {
         d3.selectAll(".spaceY").text("Etnia dell'attentatore")
+        d3.select(".yAxis")
+          .call(raceAxis)
+          .classed("yAxis", true);
       }
 
       simulation.force('y', d3.forceY(function(d){
@@ -215,24 +226,25 @@ let width = window.innerWidth-17,
     // make buttons interactive, horizontal values
     d3.selectAll('.b_sel').on('click', function(){
 
-      xAxis = this.scale;
       data_setX = this.value;
 
-      console.log(xAxis)
       console.log(data_setX)
 
       if (data_setX === "value") {
         d3.selectAll(".spaceX").text("giorno dell'evento")
-        svg.selectAll("xAxis")
-        .call(dateAxis);
+        d3.select(".xAxis")
+          .call(dateAxis)
+          .classed("xAxis", true);
       }else if(data_setX === "age") {
         d3.selectAll(".spaceX").text("età dell'attentatore")
-        svg.selectAll("xAxis")
-        .call(ageAxis);
+        d3.select(".xAxis")
+          .call(ageAxis)
+          .classed("xAxis", true);
       }else {
         d3.selectAll(".spaceX").text("numero di vittime")
-        svg.selectAll("xAxis")
-        .call(killAxis);
+        d3.select(".xAxis")
+          .call(killAxis)
+          .classed("xAxis", true);
       }
 
       simulation.force('x', d3.forceX(function(d){
