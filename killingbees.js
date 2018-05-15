@@ -50,7 +50,7 @@ let svg = d3.select('#killingbees').append('svg')
     .range([0 + padding, height - padding]);
 
     let size = d3.scaleSqrt()
-    .range([0,1.2]);
+    .range([2,30]);
 
     // Assi
     let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - (padding * 0.3));
@@ -99,6 +99,12 @@ let svg = d3.select('#killingbees').append('svg')
 
         ));
 
+      size.domain(d3.extent(data, function(d) { 
+
+        return d.kills; }
+
+        ));
+
       // start ticks for animations and transitions
 
       function tick(){
@@ -141,7 +147,7 @@ let svg = d3.select('#killingbees').append('svg')
         return size(d.kills) + 1 
       }).iterations(32))
       .alphaDecay(0)
-      .alpha(0.12)
+      .alpha(0.1)
       .on('tick', tick) 
 
       let init_decay; 
@@ -153,8 +159,24 @@ let svg = d3.select('#killingbees').append('svg')
     // tooltip
     d3.selectAll('.circ').on("mouseenter", function(d){
 
+
       d3.selectAll(".circ").style("opacity", 0.2)
       d3.select(this).style("opacity", 1)
+
+                switch(d){
+            case "Yes":
+            return "malato";
+            break;
+            case "No":
+            return "sano";
+            break;
+            case "Unclear":
+            return "incerto";
+            break;
+            case "Unknown":
+            return "sconosciuto";
+            break;
+          }
 
       let tooltip = svg.append("g")
       .classed("box", true)
@@ -176,12 +198,12 @@ let svg = d3.select('#killingbees').append('svg')
       
       tooltip.append("text")
       .classed("info", true)
-      .text("svoltosi " + d.location)
+      .text("svolto " + d.location)
       .attr("transform", "translate(0, " + 24 + ")")
 
       tooltip.append("text")
       .classed("info", true)
-      .text("problemi mentali: " + d.health)
+      .text(d.health)
       .attr("transform", "translate(0, " + 46 + ")")
 
       tooltip.append("text")
@@ -316,9 +338,39 @@ let svg = d3.select('#killingbees').append('svg')
         })
       }else {
         d3.selectAll(".spaceY").text("Etnia dell'attentatore")
-        d3.select(".yAxis")
+        let axisSelection = d3.select(".yAxis")
         .call(raceAxis)
         .classed("yAxis", true);
+
+        axisSelection.selectAll('.tick text')
+        .text(function(d){
+          switch(d){
+            case "White":
+            return "Caucasici";
+            break;
+            case "Asian":
+            return "Asiatici";
+            break;
+            case "Asian American":
+            return "Asiatici Americani";
+            break;
+            case "Black":
+            return "Afro Americani";
+            break;
+            case "Latino":
+            return "Latini";
+            break;
+            case "Native":
+            return "Nativi";
+            break;
+            case "Other":
+            return "altro";
+            break;
+            case "Unknown":
+            return "non disponibile";
+            break;
+          }
+        })
       }
 
       simulation.force('y', d3.forceY(function(d){
@@ -339,7 +391,7 @@ let svg = d3.select('#killingbees').append('svg')
       }).iterations(32))
 
       simulation
-      .alphaDecay(0.01)
+      .alphaDecay(0)
       .alpha(0.5)
       .restart()
 
@@ -383,7 +435,7 @@ let svg = d3.select('#killingbees').append('svg')
       }))
 
       simulation
-      .alphaDecay(0.01)
+      .alphaDecay(0)
       .alpha(0.5)
       .restart()
     })
