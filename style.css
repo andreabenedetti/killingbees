@@ -106,6 +106,15 @@ button:focus {
   outline: none;
 }
 
+.circ {
+  transition: opacity 0.3s ease;
+}
+
+
+.circ:hover {
+  cursor: pointer;
+}
+
 .b_sel {
   border: 1px solid teal;
   background: #EFE9E7;
@@ -126,6 +135,19 @@ button:focus {
   background: rgba(244, 67, 54, 0.3);
 }
 
+.d_del {
+  background: crimson;
+  color: white;
+  border: 1px solid rgba(0,0,0,.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: normal;
+}
+
 .selected {
   color: white;
 }
@@ -134,4 +156,22 @@ button:focus {
   font-style: italic;
   font-size: 0.8rem;
   color: #777;
+}
+
+.box {
+  pointer-events: none;
+}
+
+.info {
+  fill: black;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.date {
+  font-weight: bold;
+}
+
+#killingbees-ui {
+  margin-bottom: 1rem;
 }
