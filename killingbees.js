@@ -13,7 +13,8 @@ let svg = d3.select('#killingbees').append('svg')
     // various scales, could be optimized
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
-    .range(["#f44e38","#7a7a7a","#FFFFFF","#d3d3d3"]);
+    // .range(["#f44e38","#7a7a7a","#FFFFFF","#d3d3d3"]);
+    .range(["crimson","royalblue","#FFFFFF","#869DE0"]);
 
     let x = d3.scaleTime()
     .range([0 + 2.5*padding, width - padding]);
@@ -163,21 +164,6 @@ let svg = d3.select('#killingbees').append('svg')
       d3.selectAll(".circ").style("opacity", 0.2)
       d3.select(this).style("opacity", 1)
 
-                switch(d){
-            case "Yes":
-            return "malato";
-            break;
-            case "No":
-            return "sano";
-            break;
-            case "Unclear":
-            return "incerto";
-            break;
-            case "Unknown":
-            return "sconosciuto";
-            break;
-          }
-
       let tooltip = svg.append("g")
       .classed("box", true)
       .attr("transform", "translate(" + ( d.x ) + ", " + ( d.y + 25 ) + ")")
@@ -238,7 +224,7 @@ let svg = d3.select('#killingbees').append('svg')
     xButtons.append('p').text('distribuisci per')
     xButtons.append('button').text('età').attr('value', 'age').classed('b_sel', true)
     xButtons.append('button').text('vittime totali').attr('value', 'kills').classed('b_sel', true)
-    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true).style('background','teal').style("color", "white")
+    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true).style('background','navy').style("color", "white")
 
     // make buttons interactive, vertical categories
     d3.selectAll('.d_sel').on('click', function(){
@@ -262,7 +248,7 @@ let svg = d3.select('#killingbees').append('svg')
       })
 
       d3.selectAll('.d_sel').classed('selected', false).style('background','transparent')
-      d3.select(this).classed('selected', true).style('background','tomato')
+      d3.select(this).classed('selected', true).style('background','crimson')
 
       data_set = this.value;
 
@@ -287,7 +273,7 @@ let svg = d3.select('#killingbees').append('svg')
             return "incerto";
             break;
             case "Unknown":
-            return "sconosciuto";
+            return "non disponibile";
             break;
           }
         })
@@ -400,8 +386,8 @@ let svg = d3.select('#killingbees').append('svg')
     // make buttons interactive, horizontal values
     d3.selectAll('.b_sel').on('click', function(){
 
-      d3.selectAll('.b_sel').classed('selected', false).style('background','transparent').style("color", "teal")
-      d3.select(this).classed('selected', true).style('background','teal').style("color", "white")
+      d3.selectAll('.b_sel').classed('selected', false).style('background','transparent').style("color", "navy")
+      d3.select(this).classed('selected', true).style('background','navy').style("color", "white")
 
       data_setX = this.value;
 

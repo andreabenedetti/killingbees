@@ -1,6 +1,7 @@
 body {
-  background: #EFE9E7;
-  font-family: -apple-system,
+  /*background: #EFE9E7;*/
+  background: snow;
+  /*font-family: -apple-system,
   BlinkMacSystemFont,
   "Segoe UI",
   Roboto,
@@ -8,7 +9,15 @@ body {
   Ubuntu,
   Cantarell,
   "Helvetica Neue",
-  sans-serif;
+  sans-serif;*/
+  font-family: "Archivo";
+  color: navy;
+}
+
+p {
+  font-family: "Archivo";
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .navbar {
@@ -22,19 +31,26 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Archivo Black";
+}
+
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: crimson;
+  color: transparent;
+  line-height: 0.9;
+}
+
+h2, h3, h4, h5 {
+  font-weight: 700;
+  color: crimson;
 }
 
 hr {
   margin: 2rem 0;
-}
-
-.spaceY {
-  color: tomato;
-}
-
-.spaceX {
-  color: #0B5345;
 }
 
 svg {
@@ -116,9 +132,9 @@ button:focus {
 }
 
 .b_sel {
-  border: 1px solid teal;
-  background: #EFE9E7;
-  color: teal;
+  border: 1px solid navy;
+  background: snow;
+  color: navy;
 }
 
 .b_sel:hover {
@@ -126,9 +142,9 @@ button:focus {
 }
 
 .d_sel {
-  border: 1px solid tomato;
-  background: #EFE9E7;
-  color: tomato;
+  border: 1px solid crimson;
+  background: snow;
+  color: crimson;
 }
 
 .d_sel:hover {
