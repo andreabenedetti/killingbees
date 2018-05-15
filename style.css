@@ -175,3 +175,9 @@ button:focus {
 #killingbees-ui {
   margin-bottom: 1rem;
 }
+
+.footer {
+  background: white;
+  height: 3rem;
+  margin-top: 1rem;
+}

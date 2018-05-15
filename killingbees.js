@@ -334,6 +334,10 @@ let svg = d3.select('#killingbees').append('svg')
         }
       }))
 
+      simulation.force('collide', d3.forceCollide(function(d) { 
+        return size(d.kills) + 1 
+      }).iterations(32))
+
       simulation
       .alphaDecay(0.01)
       .alpha(0.5)
