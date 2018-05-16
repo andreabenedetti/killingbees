@@ -10,14 +10,17 @@ body {
   Cantarell,
   "Helvetica Neue",
   sans-serif;*/
-  font-family: "Archivo";
-  color: navy;
+  font-family: "EB Garamond";
+  color: #0A0101;
+}
+
+section {
+  margin-bottom: 3rem;
 }
 
 p {
-  font-family: "Archivo";
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .navbar {
@@ -32,21 +35,15 @@ p {
 
 h1, h2, h3, h4, h5 {
   margin-bottom: 1.5rem;
-  font-family: "Archivo Black";
+  font-family: "Arimo";
 }
 
 h1 {
   font-size: 4rem;
-  text-transform: uppercase;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: crimson;
-  color: transparent;
-  line-height: 0.9;
 }
 
 h2, h3, h4, h5 {
   font-weight: 700;
-  color: crimson;
 }
 
 hr {
@@ -100,7 +97,6 @@ svg {
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: baseline;
-  font-size: 0.9rem;
 }
 
 .buttons p {

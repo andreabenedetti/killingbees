@@ -14,7 +14,7 @@ let svg = d3.select('#killingbees').append('svg')
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
     // .range(["#f44e38","#7a7a7a","#FFFFFF","#d3d3d3"]);
-    .range(["crimson","royalblue","#FFFFFF","#869DE0"]);
+    .range(["#9A031E","#0A0101","#FFFFFF","#4C4646"]);
 
     let x = d3.scaleTime()
     .range([0 + 2.5*padding, width - padding]);

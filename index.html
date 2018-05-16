@@ -13,7 +13,7 @@
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo:700|EB+Garamond:400,400i" rel="stylesheet">
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -63,42 +63,93 @@
     </nav>-->
 
     <!-- Page Content -->
-    <div id="killingbees" class="container-fluid">
+    <section id="intro">
       <div class="container">
         <div class="row">
-          <div id="killingbees-ui" class="offset-2 col-6">
+          <div class="offset-2 col-6">
             <h1>Titolo del progetto</h1>
-            <h5>Dal 1966 al 2017, tutti gli omicidi di massa negli Stati Uniti</h5>
-            <p>Passa con il <u>mouse</u> sulle bolle per vedere <b>dettagli aggiuntivi</b> su ogni evento.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
 
-  <div class="container">
-    <div class="row">
-      <div class="offset-2 col-6">
-        <p>Secondo <b>l'FBI</b> degli Stati Uniti d'America, si definisce “omicidio di massa” un incidente che coinvolge <b>più di quattro vittime</b> a causa di violenza da arma da fuoco.</p>
-        <p>Dal 1966, anno in cui l'FBI ha iniziato a tener traccia del fenomeno, al 2017 sono stati registrati più di 250 omicidi di massa, perpretrati da persone dal diverso background sociale e appartenenti a classi sociali delle più disparate.</p>
-        <p>Negli ultimi cinquant'anni, XXX persone sono state ferite, mentre XXX hanno perso la vita a causa della violenza d'armi da fuoco negli USA.</p>
-        <hr>
-      </div>
-    </div>
-    <div class="row">
-      <div class="offset-2 col-6">
-        <p class="source">dati estratti da Wikipedia, Mother Jones, Stanford University, USA Today e altri</p>
-      </div>
-    </div>
-  </div>
+      <section id="highlight">
+        <div class="container">
+          <div class="row">
+            <div class="offset-2 col-6">
+              <h2>Casi celebri</h2>
+            </div>
+          </div>
+        </section>
 
-  <div class="container-fluid footer"></div>
+      <section id="map">
+        <div class="container">
+          <div class="row">
+            <div class="offset-2 col-6">
+              <h2>Mappa di tutti gli eventi</h2>
+              <p>Mappa degli Stati Uniti con spallozzamento</p>
+              <p>Dati: localizzazione, numero di vittime, anno</p>
+            </div>
+          </div>
+        </section>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="killingbees.js"></script>
+      <section id="shootings">
+        <div class="container">
+          <div class="row">
+            <div class="offset-2 col-6">
+              <h2>Dati sulle sparatorie</h2>
+              <p>Treemap delle armi utilizzate per diverse tipologie di luoghi</p>
+              <p>Dati: armi, luoghi</p>
+            </div>
+          </div>
+        </section>
 
-</body>
+        <section id="victims">
+        <div class="container">
+          <div class="row">
+            <div class="offset-2 col-6">
+              <h2>Vittime delle sparatorie</h2>
+              <p>Scatterplot (da decidere i valori)</p>
+              <p>Dati: popolazione dei luoghi, vittime, poliziotti uccisi</p>
+            </div>
+          </div>
+        </section>
 
-</html>
+        <section id="killingbees" class="container-fluid">
+          <div class="container">
+            <div class="row">
+              <div id="killingbees-ui" class="offset-2 col-6">
+                <h2>Dati sull'attentatore</h2>
+                <p>Passa con il <u>mouse</u> sulle bolle per vedere <b>dettagli aggiuntivi</b> su ogni evento.</p>
+                <p>Da aggiungere: stato finale dell'attentatore (morte, arrestato, ecc...)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="row">
+          <div class="offset-2 col-6">
+            <p>Secondo <b>l'FBI</b> degli Stati Uniti d'America, si definisce “omicidio di massa” un incidente che coinvolge <b>più di quattro vittime</b> a causa di violenza da arma da fuoco.</p>
+            <p>Dal 1966, anno in cui l'FBI ha iniziato a tener traccia del fenomeno, al 2017 sono stati registrati più di 250 omicidi di massa, perpretrati da persone dal diverso background sociale e appartenenti a classi sociali delle più disparate.</p>
+            <p>Negli ultimi cinquant'anni, XXX persone sono state ferite, mentre XXX hanno perso la vita a causa della violenza d'armi da fuoco negli USA.</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-2 col-6">
+            <p class="source">dati estratti da Wikipedia, Mother Jones, Stanford University, USA Today e altri</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container-fluid footer"></div>
+
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="killingbees.js"></script>
+
+    </body>
+
+    </html>
