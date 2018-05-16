@@ -13,8 +13,8 @@ let svg = d3.select('#killingbees').append('svg')
     // various scales, could be optimized
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
-    // .range(["#f44e38","#7a7a7a","#FFFFFF","#d3d3d3"]);
-    .range(["#9A031E","#0A0101","#FFFFFF","#4C4646"]);
+    // .range(["#9A031E","#7a7a7a","#FFFFFF","#d3d3d3"]);
+    .range(["#C20114","#0A0101","#FFFFFF","#4C4646"]);
 
     let x = d3.scaleTime()
     .range([0 + 2.5*padding, width - padding]);
@@ -224,7 +224,7 @@ let svg = d3.select('#killingbees').append('svg')
     xButtons.append('p').text('distribuisci per')
     xButtons.append('button').text('età').attr('value', 'age').classed('b_sel', true)
     xButtons.append('button').text('vittime totali').attr('value', 'kills').classed('b_sel', true)
-    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true).style('background','navy').style("color", "white")
+    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true).style('background','#0A0101').style("color", "white")
 
     // make buttons interactive, vertical categories
     d3.selectAll('.d_sel').on('click', function(){
@@ -248,7 +248,7 @@ let svg = d3.select('#killingbees').append('svg')
       })
 
       d3.selectAll('.d_sel').classed('selected', false).style('background','transparent')
-      d3.select(this).classed('selected', true).style('background','crimson')
+      d3.select(this).classed('selected', true).style('background','#C20114')
 
       data_set = this.value;
 
@@ -386,8 +386,8 @@ let svg = d3.select('#killingbees').append('svg')
     // make buttons interactive, horizontal values
     d3.selectAll('.b_sel').on('click', function(){
 
-      d3.selectAll('.b_sel').classed('selected', false).style('background','transparent').style("color", "navy")
-      d3.select(this).classed('selected', true).style('background','navy').style("color", "white")
+      d3.selectAll('.b_sel').classed('selected', false).style('background','transparent').style("color", "#0A0101")
+      d3.select(this).classed('selected', true).style('background','#0A0101').style("color", "white")
 
       data_setX = this.value;
 

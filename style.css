@@ -1,3 +1,17 @@
+#main {
+  border: 1px solid #0A0101;
+  width: 100%;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+html {
+  background: #0A0101;
+}
+
 body {
   /*background: #EFE9E7;*/
   background: snow;
@@ -12,10 +26,21 @@ body {
   sans-serif;*/
   font-family: "EB Garamond";
   color: #0A0101;
+  user-select: none;
 }
 
 section {
   margin-bottom: 3rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid #0A0101;
+}
+
+#intro {
+  padding: 0;
+  margin: 0;
+  border-top: 10px solid #0A0101;
+  display: flex;
+  align-items: center;
 }
 
 p {
@@ -35,19 +60,78 @@ p {
 
 h1, h2, h3, h4, h5 {
   margin-bottom: 1.5rem;
-  font-family: "Arimo";
+  font-family: "Helvetica";
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-transform: lowercase;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
+  line-height: 0.9;
 }
 
-h2, h3, h4, h5 {
-  font-weight: 700;
+h1:before {
+  content:'"';
+  margin-right: .5rem;
+  position: absolute;
+  left: -1.5rem;
 }
+
+h2 {
+  font-size: 3rem;
+}
+
+/*h3:before {
+  content:"(";
+  margin-right: .5rem;
+  color: #C20114;
+}
+
+h3:after {
+  content:")";
+  margin-left: .5rem;
+  color: #C20114
+}*/
 
 hr {
   margin: 2rem 0;
+}
+
+#celeb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: 2rem;
+}
+
+.event {
+  flex-basis: 12rem;
+  padding: 0.5rem;
+}
+
+.event p {
+  max-width: 80%;
+  position: relative;
+  margin-left: 20%;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.event .glyph {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.event .location {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.year {
+  font-weight: bold;
 }
 
 svg {
@@ -106,12 +190,12 @@ svg {
 button {
   padding: 0.2rem 0.5rem;
   border: 1px solid rgba(0,0,0,.3);
-  border-radius: 3px;
+  border-radius: 1px;
   cursor: pointer;
   margin-right: 0.5rem;
-  font-size: 0.9rem;
   transition: all 0.3s ease;
   outline: none;
+  font-family: "Helvetica";
 }
 
 button:focus {
@@ -128,19 +212,19 @@ button:focus {
 }
 
 .b_sel {
-  border: 1px solid navy;
+  border: 1px solid #0A0101;
   background: snow;
-  color: navy;
+  color: #0A0101;
 }
 
 .b_sel:hover {
-  background: rgba(0, 150, 136, 0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .d_sel {
-  border: 1px solid crimson;
+  border: 1px solid #C20114;
   background: snow;
-  color: crimson;
+  color: #C20114;
 }
 
 .d_sel:hover {
@@ -148,7 +232,7 @@ button:focus {
 }
 
 .d_del {
-  background: crimson;
+  background: grey;
   color: white;
   border: 1px solid rgba(0,0,0,.2);
   opacity: 0;
@@ -189,7 +273,7 @@ button:focus {
 }
 
 .footer {
-  background: white;
+  background: #0A0101;
   height: 3rem;
   margin-top: 1rem;
 }
