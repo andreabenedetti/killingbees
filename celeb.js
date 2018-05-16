@@ -23,6 +23,8 @@ d3.tsv("sample.tsv", function(error, data) {
 	.classed("event", true)
 
 	let glyph = container.append("svg")
+	.attr("width", 300)
+	.attr("height", 300)
 	.classed("glyph", true)
 
 	glyph.append("circle")
