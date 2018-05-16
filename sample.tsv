@@ -1,16 +1,18 @@
-id	title	location	year	fatalities	injured	kills	health	race	gender
-4	Las Vegas Strip mass shooting	Las Vegas, NV	2017	59	527	585	Unclear	White	Male
-11	Orlando nightclub massacre	Orlando, FL	2016	49	53	102	Unclear	Other	Male
-86	San Bernardino, California	San Bernardino, CA	2015	16	21	35	Unknown	Asian American	Male/Female
-173	Centennial Hill Bar & Grill	Montgomery, AL	2013	3	5	8	No	Black American or African American	Male
-191	Los Angeles Police Department	Irvine, CA	2012	4	2	7	Yes	Black American or African American	Male
-224	Hartford Beer Distributor shooting	Manchester, CT	2009	9	2	11	No	Black American or African American	Male
-226	University of Alabama in Huntsville	Huntsville, AL	2009	0	3	6	No	White American or European American	Female
-228	Parkland Coffee Shop	Lakewood, WA	2009	5	0	4	Yes	Black American or African American	Male
-252	SuccessTech Academy	Cleveland, OH	2007	1	4	4	Yes	White American or European American	Male
-296	Offices of All-Tech Investment Group and Momentum Securities	Atlanta, GE	1999	10	12	21	Yes	White American or European American	Male
-350	Royal Oak Post Office	Royal Oak, MI	1991	5	5	9	Yes	White American or European American	Male
-371	Shopping centers spree killings	Palm Bay, FL	1986	6	14	20	Yes	White American or European American	Male
-372	Palm Bay Shopping Centers	Palm Bay, FL	1986	6	14	20	Yes	White American or European American	Male
-376	New York Technical College	Brooklyn, NY	1984	1	4	5	Yes	Black American or African American	Male
-395	New Orleans Police Shootings	New Orleans, LA	1966	10	13	22	Yes	Black American or African American	Male
+id	title	location	year	date	fatalities	injured	kills	health	race	gender
+17	Marjory Stoneman Douglas High School shooting	Parkland, Florida	2018	43135	17	12	29	Unclear	Other	Male
+15	Las Vegas Strip mass shooting	Las Vegas, Nevada	2017	43009	59	527	585	Unclear	White	Male
+16	Sutherland Springs church shooting	Sutherland Springs, Texas	2017	43044	26	20	46	No	White	Male
+14	Orlando nightclub massacre	Orlando, Florida	2016	42533	49	53	102	Unclear	Other	Male
+13	San Bernardino, California	San Bernardino, California	2015	42340	16	21	35	Unknown	Asian American	Male/Female
+11	Los Angeles Police Department	Irvine, California	2013	41308	4	2	7	Yes	Black American or African American	Male
+12	Centennial Hill Bar & Grill	Montgomery, Alabama	2013	41636	3	5	8	No	Black American or African American	Male
+9	Hartford Beer Distributor shooting	Manchester, Connecticut	2010	40393	9	2	11	No	Black American or African American	Male
+10	University of Alabama in Huntsville	Huntsville, Alabama	2010	40221	0	3	6	No	White American or European American	Female
+8	Parkland Coffee Shop	Lakewood, Washington	2009	40146	5	0	4	Yes	Black American or African American	Male
+7	SuccessTech Academy	Cleveland, Ohio	2007	39366	1	4	4	Yes	White American or European American	Male
+6	Offices of All-Tech Investment Group and Momentum Securities	Atlanta, Georgia	1999	36370	10	12	21	Yes	White American or European American	Male
+5	Royal Oak Post Office	Royal Oak, Michigan	1991	33556	5	5	9	Yes	White American or European American	Male
+4	Palm Bay Shopping Centers	Palm Bay, Florida	1987	31890	6	14	20	Yes	White American or European American	Male
+3	New York Technical College	Brooklyn, New York	1986	31636	1	4	5	Yes	Black American or African American	Male
+2	New Orleans Police Shootings	New Orleans, Louisiana	1972	26664	10	13	22	Yes	Black American or African American	Male
+1	University of Texas tower shooting	Austin, Texas	1966	24320	17	32	48	Yes	White	Male
