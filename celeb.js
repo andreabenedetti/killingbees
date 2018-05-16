@@ -3,7 +3,7 @@ let celebSel = d3.select("#celeb")
 let eventDate = d3.timeParse("%Y");
 
 let sizeGlyph = d3.scaleSqrt()
-.range([3,30]);
+.range([5,30]);
 
 d3.tsv("sample.tsv", function(error, data) {
 	if (error) throw error;
