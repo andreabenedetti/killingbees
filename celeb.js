@@ -2,15 +2,19 @@ let celebSel = d3.select("#celeb")
 
 let eventDate = d3.timeParse("%Y");
 
-let sizeGlyph = d3.scaleLinear()
-.range([35,10]);
+let sizeGlyph = d3.scaleSqrt()
+.range([3,30]);
 
 d3.tsv("sample.tsv", function(error, data) {
 	if (error) throw error;
 
+	console.log(data)
+
 	sizeGlyph.domain(d3.extent(data, function(d) { 
-		return d.kills; }
-		));
+		return +d.kills; }
+	));
+
+	console.log(sizeGlyph.domain())
 	
 	let container = celebSel.selectAll(".event")
 	.data(data)
