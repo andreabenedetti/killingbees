@@ -141,7 +141,7 @@ hr {
   font-weight: bold;
 }
 
-#quote {
+#details {
   min-height: 5rem;
   transition: all 0.3s ease;
 }

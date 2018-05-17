@@ -5,18 +5,12 @@ let eventDate = d3.timeParse("%Y");
 let sizeGlyph = d3.scaleSqrt()
 .range([6,32]);
 
-let raceColor = d3.scaleOrdinal()
-.domain(["White", "Black", "Asian", "Other"])
-.range(["#FED0BB", "#0A0101", "#ECE4B7", "snow"])
-
 d3.tsv("sample.tsv", function(error, data) {
 	if (error) throw error;
 
-	console.log(data)
-
 	sizeGlyph.domain(d3.extent(data, function(d) { 
 		return +d.kills; }
-	));
+		));
 	
 	let container = celebSel.selectAll(".event")
 	.data(data)
@@ -38,39 +32,52 @@ d3.tsv("sample.tsv", function(error, data) {
 	.attr("stroke", "rgba(0, 0, 0, .5)")
 	.attr("stroke-width", 1)
 
-	// let gender = glyph.append("g")
-	// .attr("transform", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return "translate(29.9,10)";
-	// 	}else {
-	// 		return "translate(35,10)"
-	// 	}
-	// })
+	let gender = glyph.append("g")
+	.attr("transform", function(d) {
+		if (d.gender === "Male") {
+			return "translate(31.5,20)";
+		}else {
+			return "translate(35,20)"
+		}
+	})
 
-	// gender.append("rect")
-	// .style("transform-origin","0px 0px 0")
-	// .attr("width", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return Math.sqrt(100 + 100) - 4
-	// 	}else {
-	// 		return 10
-	// 	}
-	// })
-	// .attr("height", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return Math.sqrt(100 + 100) - 4
-	// 	}else {
-	// 		return 10
-	// 	}
-	// })
-	// .attr("fill", function(d) { return raceColor(d.race) })
-	// .attr("stroke", "black")
-	// .attr("stroke-width",0.5)
-	// .attr("transform", function(d) {
-	// 	if (d.gender === "Female" || d.gender === "Male/Female") {
-	// 		return "rotate(45)";
-	// 	}
-	// })
+	gender.append("rect")
+	.style("transform-origin","0px 0px 0")
+	.attr("width", function(d) {
+		if (d.gender === "Male") {
+			return Math.sqrt(25 + 25)
+		}else {
+			return 7
+		}
+	})
+	.attr("height", function(d) {
+		if (d.gender === "Male") {
+			return Math.sqrt(25 + 25)
+		}else {
+			return 7
+		}
+	})
+	.attr("fill", "#0A0101")
+	.attr("transform", function(d) {
+		if (d.gender === "Female" || d.gender === "Male & Female") {
+			return "rotate(45)";
+		}
+	})
+
+		for ( let i = 0; i <= data.guns; i++) {
+
+		console.log(data.guns)
+
+		glyph.append("line")
+		.data(data)
+		.enter()
+		.attr("x1", 5)
+		.attr("x2", 25)
+		.attr("y1", 0)
+		.attr("y2", 0)
+		.attr("stroke", "black")
+
+		}
 
 	// glyph.append("text")
 	// .attr("x", 29)
@@ -105,22 +112,22 @@ d3.tsv("sample.tsv", function(error, data) {
 	.classed("state", true)
 	.text(function(d){
 		switch(d.state){
-            case "killed":
-            return "×";
-            break;
-            case "suicide":
-            return "†";
-            break;
-            case "arrested":
-            return "※";
-            break;
-            case "unknown":
-            return "?";
-            break;
-            case "escaped":
-            return "⁀";
-            break;
-          }
+			case "killed":
+			return "×";
+			break;
+			case "suicide":
+			return "†";
+			break;
+			case "arrested":
+			return "※";
+			break;
+			case "unknown":
+			return "?";
+			break;
+			case "escaped":
+			return "⁀";
+			break;
+		}
 	})
 	
 	container.append("p")
@@ -137,11 +144,11 @@ d3.tsv("sample.tsv", function(error, data) {
 
 	d3.selectAll('.event').on("mouseenter", function(d){
 
-		d3.selectAll(".event").style("opacity", 0.2)
+		d3.selectAll(".event").style("opacity", 0.3)
 		d3.select(this).style("opacity", 1)
 		
 		d3.select("#details")
-		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people.")
+		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using " + d.guns + " guns")
 	})
 
 	d3.selectAll('.event').on("mouseleave", function(d){
@@ -159,7 +166,7 @@ d3.tsv("sample.tsv", function(error, data) {
 		d3.select(this).style("opacity", 1)
 		
 		d3.select("#details")
-		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people.")
+		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using " + d.guns + "guns")
 	})
 
 	d3.selectAll('.event').on("touchend", function(d){
