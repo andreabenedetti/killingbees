@@ -1,12 +1,4 @@
-#main {
-  border: 1px solid #0A0101;
-  width: 100%;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-}
+
 
 html {
   background: #0A0101;
@@ -110,6 +102,11 @@ hr {
   flex-basis: 12rem;
   padding: 0.5rem;
   padding-bottom: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.event:hover {
+  cursor: pointer;
 }
 
 .event p {
@@ -136,6 +133,17 @@ hr {
 
 .event .gender {
   font-weight: bold;
+}
+
+.state {
+  font-family: "Helvetica";
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#quote {
+  min-height: 5rem;
+  transition: all 0.3s ease;
 }
 
 svg {
