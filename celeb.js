@@ -152,5 +152,23 @@ d3.tsv("sample.tsv", function(error, data) {
 		.style("opacity", 1)
 		.text("")
 	})
+
+	d3.selectAll('.event').on("touchstart", function(d){
+
+		d3.selectAll(".event").style("opacity", 0.2)
+		d3.select(this).style("opacity", 1)
+		
+		d3.select("#details")
+		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people.")
+	})
+
+	d3.selectAll('.event').on("touchend", function(d){
+
+		d3.selectAll(".event").style("opacity", 1)
+		
+		d3.select("#details")
+		.style("opacity", 1)
+		.text("")
+	})
 	
 })
