@@ -19,6 +19,7 @@ body {
   font-family: "EB Garamond";
   color: #0A0101;
   user-select: none;
+  border: 1px solid #0A0101;
 }
 
 section {
@@ -133,6 +134,8 @@ hr {
 
 .event .gender {
   font-weight: bold;
+  float: left;
+  margin-right: 0.5rem;
 }
 
 .state {
@@ -291,6 +294,10 @@ button:focus {
 }
 
 @media only screen and (max-width : 1224px) {
+body {
+  font-size: 0.9rem;
+}
+
   #detCont {
     width: 100%;
     position: fixed;

@@ -106,26 +106,24 @@ d3.tsv("sample.tsv", function(error, data) {
 	// 	count++;
 	// })
 
-	// glyph.append("text")
-	// .attr("x", 29)
-	// .attr("y", 35)
-	// .classed("gender", true)
-	// .text(function(d) {
-	// 	if(d.gender === "Male") {
-	// 		return "M"
-	// 	} else if(d.gender === "Male/Female") {
-	// 		return "B"
-	// 	} else {
-	// 		return "F"
-	// 	}
-	// })
-	// .attr("fill", "black")
-
 	container.append("p")
 	.classed("year", true)
 	.text(function(d) {
 		return d.year
 	})
+
+	container.append("p")
+	.classed("gender", true)
+	.text(function(d) {
+		if(d.gender === "Male") {
+			return "M"
+		} else if(d.gender === "Male/Female") {
+			return "M & F"
+		} else {
+			return "F"
+		}
+	})
+	.attr("fill", "black")
 
 	container.append("p")
 	.style("opacity", function(d) {
@@ -143,7 +141,7 @@ d3.tsv("sample.tsv", function(error, data) {
 			return "×";
 			break;
 			case "suicide":
-			return "†";
+			return "•";
 			break;
 			case "arrested":
 			return "※";
@@ -152,9 +150,9 @@ d3.tsv("sample.tsv", function(error, data) {
 			return "?";
 			break;
 			case "escaped":
-			return "⁀";
+			return "~";
 			break;
-		}
+		} 
 	})
 	
 	container.append("p")
@@ -171,13 +169,14 @@ d3.tsv("sample.tsv", function(error, data) {
 
 	d3.selectAll('.event').on("mouseenter", function(d){
 
+
 		d3.selectAll(".event").style("opacity", 0.3)
 		d3.select(this).style("opacity", 1)
 
 		console.log(d.guns)
 		
 		d3.select("#details")
-		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using " + d.guns + " guns")
+		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using an arsenal of " + d.guns)
 	})
 
 	d3.selectAll('.event').on("mouseleave", function(d){
