@@ -3,7 +3,9 @@ let celebSel = d3.select("#celeb")
 let eventDate = d3.timeParse("%Y");
 
 let sizeGlyph = d3.scaleSqrt()
-.range([6,32]);
+.range([2,32]);
+
+let count = 1;
 
 d3.tsv("sample.tsv", function(error, data) {
 	if (error) throw error;
@@ -64,20 +66,44 @@ d3.tsv("sample.tsv", function(error, data) {
 		}
 	})
 
-		for ( let i = 0; i <= data.guns; i++) {
+	d3.selectAll(".event").each(function(d, o) {
+		let thisSvg = d3.select(this).select('svg');
 
-		console.log(data.guns)
+		for ( let i = 1; i <= +d.guns; i++) {
 
-		glyph.append("line")
-		.data(data)
-		.enter()
-		.attr("x1", 5)
-		.attr("x2", 25)
-		.attr("y1", 0)
-		.attr("y2", 0)
-		.attr("stroke", "black")
+			thisSvg.append("line")
+			.attr("x1", 15)
+			.attr("x2", 30)
+			.attr("y1", i*4)
+			.attr("y2", i*4)
+			.attr("stroke", "black");
 
 		}
+
+		console.log(d.guns)
+
+	})
+
+	// glyph.each(function(d) {
+
+	// 	for ( let i = 0; i < +d.guns; i++ ) {
+
+	// 		glyph
+	// 		.append("line")
+	// 		.attr("x1", 15)
+	// 		.attr("x2", 30)
+	// 		.attr("y1", count*5)
+	// 		.attr("y2", count*5)
+	// 		.attr("r", 5)
+	// 		.attr("fill", "none")
+	// 		.attr("stroke", "black");
+
+	// 		console.log(d.guns)
+
+	// 	}
+
+	// 	count++;
+	// })
 
 	// glyph.append("text")
 	// .attr("x", 29)
@@ -146,6 +172,8 @@ d3.tsv("sample.tsv", function(error, data) {
 
 		d3.selectAll(".event").style("opacity", 0.3)
 		d3.select(this).style("opacity", 1)
+
+		console.log(d.guns)
 		
 		d3.select("#details")
 		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using " + d.guns + " guns")
