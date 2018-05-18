@@ -279,13 +279,20 @@ button:focus {
 
 #tooltip {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  background: white;
-  width: 10rem;
-  padding: 1rem;
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: 2px;
+  bottom: 3rem;
+  left: 3rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-family: "Helvetica";
+}
+
+#tooltip p{
+  margin-right: 0.2rem;
+  line-height: 1.3;
+  text-transform: lowercase;
+  font-size: 1rem;
+  transition: .3s ease;
+  display: inline-block;
 }
 
 .info {

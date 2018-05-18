@@ -8,7 +8,7 @@ let svg = d3.select('#killingbees').append('svg')
 
     // parse values in dataset
     let parseDate = d3.timeParse("%Y-%m-%d");
-    let formatDate = d3.timeFormat("%Y");
+    let formatDate = d3.timeFormat("%d %B %Y");
 
     // various scales, could be optimized
     let colors = d3.scaleOrdinal()
@@ -164,7 +164,7 @@ let svg = d3.select('#killingbees').append('svg')
       d3.selectAll(".circ").style("opacity", 0.2)
       d3.select(this).style("opacity", 1)
 
-      let tooltip = d3.select("#tooltip")
+      let tooltip = d3.select("#tooltip").style("opacity", 1)
 
       tooltip.append("p")
       .classed("info", true)
@@ -173,23 +173,23 @@ let svg = d3.select('#killingbees').append('svg')
       
       tooltip.append("p")
       .classed("info", true)
-      .text(d.kills + " vittime")
+      .text(d.kills + " victims")
       .attr("transform", "translate(0, " + 12 + ")")
 
       
       tooltip.append("p")
       .classed("info", true)
-      .text("svolto " + d.location)
+      .text("in a " + d.location + " location")
       .attr("transform", "translate(0, " + 24 + ")")
 
       tooltip.append("p")
       .classed("info", true)
-      .text(d.health)
+      .text("mental illness: " + d.health)
       .attr("transform", "translate(0, " + 46 + ")")
 
       tooltip.append("p")
       .classed("info", true)
-      .text(d.age + " anni")
+      .text(d.age + " years old")
       .attr("transform", "translate(0, " + 58 + ")")
 
       tooltip.append("p")
@@ -201,25 +201,26 @@ let svg = d3.select('#killingbees').append('svg')
     d3.selectAll('.circ').on("mouseleave", function(d){
 
       d3.selectAll(".circ").style("opacity", 1)
+      d3.select("#tooltip").style("opacity", 0)
       d3.selectAll("#tooltip p").remove()
     })
 
     // Draw UI buttons
 
     let yButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    yButtons.append('p').text('dividi per')
-    yButtons.append('button').text('stato mentale').attr('value', 'health').classed('d_sel', true)
-    yButtons.append('button').text('tipologia di luogo').attr('value', 'location').classed('d_sel', true)
-    yButtons.append('button').text('genere').attr('value', 'gender').classed('d_sel', true)
-    yButtons.append('button').text('etnia').attr('value', 'race').classed('d_sel', true)
+    yButtons.append('p').text('divide by')
+    yButtons.append('button').text('mental health').attr('value', 'health').classed('d_sel', true)
+    yButtons.append('button').text('location type').attr('value', 'location').classed('d_sel', true)
+    yButtons.append('button').text('gender').attr('value', 'gender').classed('d_sel', true)
+    yButtons.append('button').text('race').attr('value', 'race').classed('d_sel', true)
 
     yButtons.append('button').text('X').attr('value', 'race').classed('d_del', true).classed("disabled", true)
 
     let xButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    xButtons.append('p').text('distribuisci per')
-    xButtons.append('button').text('età').attr('value', 'age').classed('b_sel', true)
-    xButtons.append('button').text('vittime totali').attr('value', 'kills').classed('b_sel', true)
-    xButtons.append('button').text("data dell'attentato").attr('value', 'value').classed('b_sel', true).style('background','#0A0101').style("color", "white")
+    xButtons.append('p').text('place by ')
+    xButtons.append('button').text('perpetrator age').attr('value', 'age').classed('b_sel', true)
+    xButtons.append('button').text('total victims').attr('value', 'kills').classed('b_sel', true)
+    xButtons.append('button').text("date").attr('value', 'value').classed('b_sel', true).style('background','#0A0101').style("color", "white")
 
     // make buttons interactive, vertical categories
     d3.selectAll('.d_sel').on('click', function(){
