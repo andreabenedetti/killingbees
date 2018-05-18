@@ -42,6 +42,14 @@ p {
   line-height: 1.6;
 }
 
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
 .navbar {
   background: #EFE9E7;
   color: black;
@@ -269,14 +277,21 @@ button:focus {
   color: #777;
 }
 
-.box {
-  pointer-events: none;
+#tooltip {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background: white;
+  width: 10rem;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 2px;
 }
 
 .info {
   fill: black;
-  font-size: 0.7rem;
-  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
 .date {
@@ -289,8 +304,9 @@ button:focus {
 
 .footer {
   background: #0A0101;
-  height: 3rem;
   margin-top: 1rem;
+  color: snow;
+  padding: 2rem 0;
 }
 
 @media only screen and (max-width : 1224px) {

@@ -164,40 +164,35 @@ let svg = d3.select('#killingbees').append('svg')
       d3.selectAll(".circ").style("opacity", 0.2)
       d3.select(this).style("opacity", 1)
 
-      let tooltip = svg.append("g")
-      .classed("box", true)
-      .attr("transform", "translate(" + ( d.x ) + ", " + ( d.y + 25 ) + ")")
-      .attr("width", 100)
-      .attr("height", 80)
-      .style("background", "white")
+      let tooltip = d3.select("#tooltip")
 
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .classed("date", true)
       .text(formatDate(d.value))
       
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .text(d.kills + " vittime")
       .attr("transform", "translate(0, " + 12 + ")")
 
       
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .text("svolto " + d.location)
       .attr("transform", "translate(0, " + 24 + ")")
 
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .text(d.health)
       .attr("transform", "translate(0, " + 46 + ")")
 
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .text(d.age + " anni")
       .attr("transform", "translate(0, " + 58 + ")")
 
-      tooltip.append("text")
+      tooltip.append("p")
       .classed("info", true)
       .text(d.race)
       .attr("transform", "translate(0, " + 70 + ")")
@@ -206,7 +201,7 @@ let svg = d3.select('#killingbees').append('svg')
     d3.selectAll('.circ').on("mouseleave", function(d){
 
       d3.selectAll(".circ").style("opacity", 1)
-      d3.selectAll(".box").remove()
+      d3.selectAll("#tooltip p").remove()
     })
 
     // Draw UI buttons
