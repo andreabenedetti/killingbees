@@ -74,9 +74,10 @@ d3.tsv("sample.tsv", function(error, data) {
 			thisSvg.append("line")
 			.attr("x1", 15)
 			.attr("x2", 30)
-			.attr("y1", i*4)
-			.attr("y2", i*4)
-			.attr("stroke", "black");
+			.attr("y1", i*4.5)
+			.attr("y2", i*4.5)
+			.attr("stroke", "#0A0101")
+			.attr("stroke-width", 1.5);
 
 		}
 
