@@ -20,6 +20,7 @@ body {
   color: #0A0101;
   user-select: none;
   border: 1px solid #0A0101;
+  overflow-x: hidden;
 }
 
 section {
@@ -382,14 +383,10 @@ button:focus {
 }
 
 /* Mappa */
-.feature {
-    fill: none;
-    stroke: #0A0101;
-    stroke-width: 1px;
-  }
-  .mesh {
-    fill: none;
-  }
+.states{
+  fill:snow;
+  stroke:#EFEAEA;
+}
 
 @media only screen and (max-width : 1224px) {
 body {
