@@ -19,7 +19,7 @@ body {
   font-family: "EB Garamond";
   color: #0A0101;
   user-select: none;
-  border: 1px solid #0A0101;
+  overflow-x: hidden;
 }
 
 section {
@@ -120,6 +120,10 @@ hr {
 
 .legend {
   border-right: 1px solid rgba(0,0,0,.2);
+}
+
+.legend > .desc {
+  padding-right: 1rem;
 }
 
 #legend > * {
@@ -384,8 +388,8 @@ button:focus {
 /* Mappa */
 
 .states {
-  fill: #e5e1e1;
-  stroke: snow;
+  fill: snow;
+  stroke: #EFEAEA;
 }
 
 .mapCircle {

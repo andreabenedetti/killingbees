@@ -1,4 +1,4 @@
-let mapWidth = window.innerWidth * 0.95,
+let mapWidth = window.innerWidth,
 mapHeight = window.innerHeight * 0.95;
 
 let projection = d3.geoAlbersUsa();
@@ -7,7 +7,8 @@ let path = d3.geoPath()
 
 let map = d3.select("#map").append("svg")
 .attr("width", mapWidth)
-.attr("height", mapHeight);
+.attr("height", mapHeight)
+.style("background", "#EFEAEA");
 
 let interpolators = [
     // These are from d3-scale.
@@ -40,7 +41,7 @@ let interpolators = [
     "YlOrRd"
   ];
 
-let colorScale = d3.scaleSequential(d3.interpolateYlOrRd);
+let colorScale = d3.scaleSequential(d3.interpolateGreys);
 
 d3.json("us.json", function(error, us) {
 
@@ -71,7 +72,7 @@ d3.json("us.json", function(error, us) {
     .attr("cy", function(d) {
      return projection([d.lon, d.lat])[1];
    })
-    .attr("r", 2.5)
+    .attr("r", 2)
     .classed("mapCircle", true)
     .attr("fill", d => { return colorScale(+d.year)})
 
