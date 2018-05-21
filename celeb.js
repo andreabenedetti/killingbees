@@ -37,38 +37,6 @@ d3.tsv("sample.tsv", function(error, data) {
 	.attr("stroke", "rgba(0, 0, 0, .5)")
 	.attr("stroke-width", 1)
 
-	// let gender = glyph.append("g")
-	// .attr("transform", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return "translate(31.5,20)";
-	// 	}else {
-	// 		return "translate(35,20)"
-	// 	}
-	// })
-
-	// gender.append("rect")
-	// .style("transform-origin","0px 0px 0")
-	// .attr("width", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return Math.sqrt(25 + 25)
-	// 	}else {
-	// 		return 7
-	// 	}
-	// })
-	// .attr("height", function(d) {
-	// 	if (d.gender === "Male") {
-	// 		return Math.sqrt(25 + 25)
-	// 	}else {
-	// 		return 7
-	// 	}
-	// })
-	// .attr("fill", "#0A0101")
-	// .attr("transform", function(d) {
-	// 	if (d.gender === "Female" || d.gender === "Male & Female") {
-	// 		return "rotate(45)";
-	// 	}
-	// })
-
 	// disegno delle linee per il numero di armi utilizzate
 	d3.selectAll(".event").each(function(d, o) {
 		let thisSvg = d3.select(this).select('svg');
@@ -128,7 +96,7 @@ d3.tsv("sample.tsv", function(error, data) {
 			return "•";
 			break;
 			case "arrested":
-			return "※";
+			return "#";
 			break;
 			case "unknown":
 			return "?";
@@ -150,6 +118,8 @@ d3.tsv("sample.tsv", function(error, data) {
 	.text(function(d) {
 		return d.title
 	})
+
+	d3.select("#celeb .event:first-child").classed("legend", true)
 
 	// interazioni desktop
 	d3.selectAll('.event').on("mouseenter", function(d){

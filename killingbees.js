@@ -1,10 +1,13 @@
-let width = window.innerWidth-30,
+
+let killingbees = document.getElementById("killingbees");
+
+let width = window.innerWidth * 0.95,
 height = 600,
 padding = 50; 
 
-let svg = d3.select('#killingbees').append('svg')
-.attr('width', width)
-.attr('height', height)
+    let svg = d3.select('#killingbees').append('svg')
+    .attr('width', width)
+    .attr('height', height)
 
     // parse values in dataset
     let parseDate = d3.timeParse("%Y-%m-%d");
@@ -132,8 +135,8 @@ let svg = d3.select('#killingbees').append('svg')
       .data(data)
       .enter().append('circle').classed('circ', true)
       .attr('r', function(d) { return size(d.kills) })
-      .attr('cx', function(d){return x(d.value);})
-      .attr('cy', function(){return height/2;})
+      .attr('cx', function(d){ return x(d.value); })
+      .attr('cy', function(){ return height/2; })
       .attr("fill", function(d) { return colors(d.health); })
       .attr("stroke", "rgba(0,0,0,.45)")
       .attr("stroke-width", 1)
@@ -144,6 +147,7 @@ let svg = d3.select('#killingbees').append('svg')
         return x(d[data_setX])
       }).strength(0.99))
       .force('y', d3.forceY( height / 2 ).strength(0.99))
+
       .force('collide', d3.forceCollide(function(d) { 
         return size(d.kills) + 1 
       }).iterations(32))
@@ -260,16 +264,16 @@ let svg = d3.select('#killingbees').append('svg')
         .text(function(d){
           switch(d){
             case "Yes":
-            return "malato";
+            return "Mentally ill";
             break;
             case "No":
-            return "sano";
+            return "Sane";
             break;
             case "Unclear":
-            return "incerto";
+            return "Unclear";
             break;
             case "Unknown":
-            return "non disponibile";
+            return "Not Available";
             break;
           }
         })
@@ -328,28 +332,28 @@ let svg = d3.select('#killingbees').append('svg')
         .text(function(d){
           switch(d){
             case "White":
-            return "Caucasici";
+            return "White";
             break;
             case "Asian":
-            return "Asiatici";
+            return "Asian";
             break;
             case "Asian American":
-            return "Asiatici Americani";
+            return "Asian American";
             break;
             case "Black":
-            return "Afro Americani";
+            return "Black";
             break;
             case "Latino":
-            return "Latini";
+            return "Latino";
             break;
             case "Native":
-            return "Nativi";
+            return "Native";
             break;
             case "Other":
-            return "altro";
+            return "Other";
             break;
             case "Unknown":
-            return "non disponibile";
+            return "Not Available";
             break;
           }
         })
