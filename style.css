@@ -393,10 +393,10 @@ body {
   font-size: 0.9rem;
 }
 
-  #detCont {
+/*  #detCont {
     width: 100%;
     position: fixed;
     bottom: 0;
     z-index: 9999;
-  }
+  }*/
 }

@@ -1,3 +1,7 @@
+
+// d3.select(window)
+// .on("resize", sizeChange);
+
 let mapWidth = window.innerWidth,
     mapHeight = 800;
 
@@ -79,7 +83,8 @@ d3.selectAll('circle').on("mouseenter", d => {
   });
 
 });
-
-
-
 });
+// function sizeChange() {
+//       d3.select("#map").attr("transform", "scale(" + $("#map").width()/400 + ")");
+//       $("#map").height($("#map").width()*0.2);
+//   }
