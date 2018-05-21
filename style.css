@@ -382,14 +382,19 @@ button:focus {
 }
 
 /* Mappa */
-.feature {
-    fill: none;
-    stroke: #0A0101;
-    stroke-width: 1px;
-  }
-  .mesh {
-    fill: none;
-  }
+
+.states {
+  fill: #e5e1e1;
+  stroke: snow;
+}
+
+.mapCircle {
+  stroke-width: 1;
+}
+
+.mapCircle:hover {
+  cursor: pointer;
+}
 
 @media only screen and (max-width : 1224px) {
 body {
