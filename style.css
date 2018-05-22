@@ -387,8 +387,8 @@ button:focus {
 /* Mappa */
 
 #map svg{
-  border-top: 1px solid #0A0101;
-  border-bottom: 1px solid #0A0101;
+  border-top: 1px solid #EFEAEA;
+  border-bottom: 1px solid #EFEAEA;
   margin-top: 2rem;
 }
 
@@ -399,7 +399,7 @@ button:focus {
 
 .mapCircle {
   stroke-width: 1;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .mapCircle:hover {

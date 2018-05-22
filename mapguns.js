@@ -1,5 +1,5 @@
 let mapWidth = +d3.selectAll("#map").node().getBoundingClientRect().width,
-mapHeight =  mapWidth / 2.5;
+mapHeight =  mapWidth / 2;
 
 let projection = d3.geoAlbersUsa();
 let path = d3.geoPath()
@@ -10,11 +10,12 @@ let mapSvg = d3.select("#map").append("svg")
 .attr("height", mapHeight)
 .style("background", "#EFEAEA");
 
-let map = mapSvg.append("g")
-
 let zoom = d3.zoom()
-.scaleExtent([1, 4])
+.scaleExtent([1, 8])
 .on("zoom", zoomed);
+
+let map = mapSvg.append("g");
+mapSvg.call(zoom);
 
 let mapTooltip = mapSvg.append("g").classed("mapTooltip", true)
 
@@ -50,11 +51,11 @@ let interpolators = [
     ];
 
 
-    let colorScale = d3.scaleSequential(d3.interpolateGreys);
+    let colorScale = d3.scaleSequential(d3.interpolateOranges);
 
     d3.json("us.json", function(error, us) {
 
-      projection.scale([width * 1.5])
+      projection.scale([mapWidth * 1.5])
       .translate([mapWidth / 2, mapHeight / 2])
 
       map.append("path")
@@ -111,12 +112,12 @@ let interpolators = [
 
 });
 
-     map.call(zoom);
-
-    function zoomed() {
+function zoomed() {
+      map.selectAll("#map circle").attr("r", 2.5 / d3.event.transform.k);
+      map.style("stroke-width", 1.5 / d3.event.transform.k + "px");
       map.attr("transform", d3.event.transform);
     }
 
-    function stopped() {
+        function stopped() {
   if (d3.event.defaultPrevented) d3.event.stopPropagation();
 }
