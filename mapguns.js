@@ -10,6 +10,8 @@ let map = d3.select("#map").append("svg")
     .attr("height", mapHeight)
     .style("background", "#EFEAEA");
 
+let mapTooltip = d3.select("mapTooltip")
+
 d3.json("us.json", function(error, us) {
 
 projection.scale([width])
@@ -71,8 +73,10 @@ map.selectAll("circle")
          .attr("r", 2)
          .style("fill", function(d) { return colorScale(+d.year); })
 
-d3.selectAll('#map circle').on("mouseenter", d => {
+d3.selectAll('#map circle').on("mouseenter", function(d) {
       console.log(d.year)
+
+
 
 d3.selectAll("#map circle").style("opacity",0.2)
 d3.select(this).style("opacity",1) 
@@ -81,9 +85,12 @@ d3.select(this).style("opacity",1)
 d3.selectAll("#map circle").on("mouseleave", function(d){
 d3.select("circle").style("opacity",1)
 
+mapTooltip.append("p")
+.text(d.year)
+    });
+  });
 });
-});
-});
+
 // function sizeChange() {
 //       d3.select("#map").attr("transform", "scale(" + $("#map").width()/400 + ")");
 //       $("#map").height($("#map").width()*0.2);
