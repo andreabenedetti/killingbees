@@ -74,14 +74,13 @@ map.selectAll("circle")
 d3.selectAll('#map circle').on("mouseenter", d => {
       console.log(d.year)
 
-      d3.selectAll("#map circle").style("opacity",0.2)
-      d3.select(this).style("opacity",1)
+d3.selectAll("#map circle").style("opacity",0.2)
+d3.select(this).style("opacity",1) 
+});
 
-    });
+d3.selectAll("#map circle").on("mouseleave", function(d){
+d3.select("circle").style("opacity",1)
 
-    d3.selectAll("#map circle").on("mouseleave", function(d){
-
-      d3.selectAll("#map circle").style("opacity",1)
 });
 });
 });
