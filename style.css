@@ -391,6 +391,10 @@ button:focus {
 #map circle{
   cursor: pointer;
 }
+
+#map .date{
+font-size: 1.6rem;
+}
 @media only screen and (max-width : 1224px) {
 body {
   font-size: 0.9rem;
