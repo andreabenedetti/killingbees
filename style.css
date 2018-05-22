@@ -388,6 +388,9 @@ button:focus {
   stroke:#EFEAEA;
 }
 
+#map circle{
+  cursor: pointer;
+}
 @media only screen and (max-width : 1224px) {
 body {
   font-size: 0.9rem;

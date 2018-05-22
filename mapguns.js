@@ -1,9 +1,5 @@
-
-// d3.select(window)
-// .on("resize", sizeChange);
-
-let mapWidth = window.innerWidth,
-    mapHeight = 800;
+let mapWidth = +d3.selectAll("#map").node().getBoundingClientRect().width,
+mapHeight =  mapWidth / 2;
 
 let projection = d3.geoAlbersUsa();
 let path = d3.geoPath()
@@ -17,16 +13,13 @@ let map = d3.select("#map").append("svg")
 d3.json("us.json", function(error, us) {
 
 projection.scale([width])
-  .translate([width / 2,height / 1.5])
+  .translate([mapWidth / 2, mapHeight / 2])
 
 map.append("path")
   .attr("class", "states")
   .datum(topojson.feature(us, us.objects.states))
   .attr("d", path);
 
-// let colorScale = d3.scaleLinear()
-// .interpolate(d3.interpolateRgb)
-// .range([d3.rgb("#490000"), d3.rgb('#FF0000')]);
 
 var interpolators = [
     // These are from d3-scale.
@@ -78,10 +71,18 @@ map.selectAll("circle")
          .attr("r", 2)
          .style("fill", function(d) { return colorScale(+d.year); })
 
-d3.selectAll('circle').on("mouseenter", d => {
-    console.log(d.year)
-  });
+d3.selectAll('#map circle').on("mouseenter", d => {
+      console.log(d.year)
 
+      d3.selectAll("#map circle").style("opacity",0.2)
+      d3.select(this).style("opacity",1)
+
+    });
+
+    d3.selectAll("#map circle").on("mouseleave", function(d){
+
+      d3.selectAll("#map circle").style("opacity",1)
+});
 });
 });
 // function sizeChange() {
