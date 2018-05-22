@@ -18,7 +18,6 @@ body {
   sans-serif;*/
   font-family: "EB Garamond";
   color: #0A0101;
-  user-select: none;
   overflow-x: hidden;
 }
 
@@ -387,6 +386,12 @@ button:focus {
 
 /* Mappa */
 
+#map svg{
+  border-top: 1px solid #0A0101;
+  border-bottom: 1px solid #0A0101;
+  margin-top: 2rem;
+}
+
 .states {
   fill: snow;
   stroke: #EFEAEA;
@@ -394,10 +399,15 @@ button:focus {
 
 .mapCircle {
   stroke-width: 1;
+  transition: all 0.3s ease;
 }
 
 .mapCircle:hover {
   cursor: pointer;
+}
+
+#map .date {
+  font-size: 1.6rem;
 }
 
 @media only screen and (max-width : 1224px) {

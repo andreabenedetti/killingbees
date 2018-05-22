@@ -138,7 +138,7 @@ padding = 50;
       .attr('cx', function(d){ return x(d.value); })
       .attr('cy', function(){ return height/2; })
       .attr("fill", function(d) { return colors(d.health); })
-      .attr("stroke", "rgba(0,0,0,.45)")
+      .attr("stroke", "rgba(0,0,0,.2)")
       .attr("stroke-width", 1)
 
       // Start force layout

@@ -1,14 +1,22 @@
-let mapWidth = window.innerWidth,
-mapHeight = window.innerHeight * 0.95;
+let mapWidth = +d3.selectAll("#map").node().getBoundingClientRect().width,
+mapHeight =  mapWidth / 2.5;
 
 let projection = d3.geoAlbersUsa();
 let path = d3.geoPath()
 .projection(projection);
 
-let map = d3.select("#map").append("svg")
+let mapSvg = d3.select("#map").append("svg")
 .attr("width", mapWidth)
 .attr("height", mapHeight)
 .style("background", "#EFEAEA");
+
+let map = mapSvg.append("g")
+
+let zoom = d3.zoom()
+.scaleExtent([1, 4])
+.on("zoom", zoomed);
+
+let mapTooltip = mapSvg.append("g").classed("mapTooltip", true)
 
 let interpolators = [
     // These are from d3-scale.
@@ -39,26 +47,27 @@ let interpolators = [
     "YlGn",
     "YlOrBr",
     "YlOrRd"
-  ];
+    ];
 
-let colorScale = d3.scaleSequential(d3.interpolateGreys);
 
-d3.json("us.json", function(error, us) {
+    let colorScale = d3.scaleSequential(d3.interpolateGreys);
 
-  projection.scale([width])
-  .translate([width / 2,height / 1.5])
+    d3.json("us.json", function(error, us) {
 
-  map.append("path")
-  .attr("class", "states")
-  .datum(topojson.feature(us, us.objects.states))
-  .attr("d", path);
+      projection.scale([width * 1.5])
+      .translate([mapWidth / 2, mapHeight / 2])
 
-  d3.tsv("geo.tsv", function(error, data) {
-    if (error) throw error;
+      map.append("path")
+      .attr("class", "states")
+      .datum(topojson.feature(us, us.objects.states))
+      .attr("d", path);
 
-    colorScale.domain(d3.extent(data, d => { 
-      return +d.year; }
-      ));
+      d3.tsv("geo.tsv", function(error, data) {
+        if (error) throw error;
+
+        colorScale.domain(d3.extent(data, d => { 
+          return +d.year; }
+          ));
 
     // console.log(JSON.stringify(data, null, "\t"));
 
@@ -72,14 +81,42 @@ d3.json("us.json", function(error, us) {
     .attr("cy", function(d) {
      return projection([d.lon, d.lat])[1];
    })
-    .attr("r", 2)
+    .attr("r", 2.5)
     .classed("mapCircle", true)
     .attr("fill", d => { return colorScale(+d.year)})
 
-    d3.selectAll('circle').on("mouseenter", d => {
+    d3.selectAll('.mapCircle').on("mouseenter", function(d) {
       console.log(d.year)
+
+      d3.selectAll(".mapCircle").style("opacity", 0.2)
+      d3.select(this).style("opacity", 1)
+
+      mapTooltip.append("text")
+      .attr("x", 20)
+      .attr("y", 40)
+      .classed("date", true)
+      .text(d.year)
+
+    });
+
+    d3.selectAll('.mapCircle').on("mouseleave", function(d){
+
+      d3.selectAll(".mapCircle").style("opacity", 1)
+
+      mapTooltip.selectAll("text").remove()
+
     });
 
   });
-  
+
 });
+
+     map.call(zoom);
+
+    function zoomed() {
+      map.attr("transform", d3.event.transform);
+    }
+
+    function stopped() {
+  if (d3.event.defaultPrevented) d3.event.stopPropagation();
+}

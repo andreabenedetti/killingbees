@@ -34,8 +34,6 @@ d3.tsv("sample.tsv", function(error, data) {
 	.attr("r", function(d) { return sizeGlyph(d.kills) })
 	.attr("fill", function(d) { return colors(d.health) })
 	.classed("highEvents", true)
-	.attr("stroke", "rgba(0, 0, 0, .5)")
-	.attr("stroke-width", 1)
 
 	// disegno delle linee per il numero di armi utilizzate
 	d3.selectAll(".event").each(function(d, o) {
