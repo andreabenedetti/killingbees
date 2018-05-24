@@ -60,7 +60,7 @@
         <div class="container">
           <div class="row">
             <div class="offset-lg-2 col-lg-8">
-              <h2>Recurring events</h2>
+              <h2>What?</h2>
               <h3>the most infamous events</h3>
               <p>The <b>FBI</b> defines a mass shooting as an event of gun violence where more than four people are involved as victims.</p>
               <p>From 1966, the year of the first recognized mass shooting, to 2017, a total of more than 250 events have happened.</p>
@@ -91,24 +91,28 @@
           </div>
           </section>
 
-          <section id="map">
+          <section id=location">
             <div class="container">
               <div class="row">
                 <div class="offset-lg-2 col-lg-8">
-                  <h2>all over the place</h2>
+                  <h2>Where?</h2>
                   <h3>a map to understand where incidents occur</h3>
-                  <p>Mappa degli Stati Uniti con spallozzamento</p>
-                  <p>Dati: localizzazione, numero di vittime, anno</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
               </div>
-              <div id="mapTooltip"></div>
+            </div>
+            <div id="map">
+              <div class="container-fluid">
+                <div class="mapTooltip"></div>
+              </div>
+            </div>
             </section>
 
             <section id="shootings">
               <div class="container">
                 <div class="row">
                   <div class="offset-lg-2 col-lg-8">
-                    <h2>Guns don't kill people, allegedly</h2>
+                    <h2>How?</h2>
                     <h3>the tools used to kill, and where</h3>
                     <p>Treemap delle armi utilizzate per diverse tipologie di luoghi</p>
                     <p>Dati: armi, luoghi</p>
@@ -120,7 +124,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="offset-lg-2 col-lg-8">
-                      <h2>and many were scarred</h2>
+                      <h2>(io questa sezione la toglierei)</h2>
                       <h3>all about victims</h3>
                       <p>Scatterplot (da decidere i valori)</p>
                       <p>Dati: popolazione dei luoghi, vittime, poliziotti uccisi</p>
@@ -133,8 +137,8 @@
                     <div class="row">
                       <div id="killingbees-ui" class="offset-lg-2 col-lg-8">
                         <div id="tooltip"></div>
-                        <h2>in the end, it was like <br/>a swarm of killing bees.</h2>
-                        <h3>the identity of the perpetrators</h3>
+                        <h2>Who?</h2>
+                        <h3>identikits</h3>
                         <p>Passa con il <u>mouse</u> sulle bolle per vedere <b>dettagli aggiuntivi</b> su ogni evento.</p>
                         <p>Da aggiungere: stato finale dell'attentatore (morte, arrestato, ecc...)</p>
                       </div>
@@ -167,6 +171,7 @@
 
               <script src="https://d3js.org/d3.v4.min.js"></script>
               <script src="https://d3js.org/topojson.v2.min.js"></script>
+              <script src="https://d3js.org/d3-ease.v1.min.js"></script>
 
               <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
               <script src="killingbees.js"></script>
