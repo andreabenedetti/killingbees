@@ -17,7 +17,7 @@ padding = 50;
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
     // .range(["#9A031E","#7a7a7a","#FFFFFF","#d3d3d3"]);
-    .range(["#E63B2E","#4C4646","#FFFFFF","#9D9A9A"]);
+    .range(["#c91212","#9fc6c3","#FFFFFF","#a6adac"]);
 
     let x = d3.scaleTime()
     .range([0 + 2.5*padding, width - padding]);
