@@ -24,6 +24,14 @@ section {
   padding-bottom: 5rem;
 }
 
+a, a:visited {
+  color: #E63B2E;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .container-fluid {
   padding: 0;
 }
@@ -35,6 +43,16 @@ section {
   border-bottom: 1px solid #0A0101;
   display: flex;
   align-items: center;
+}
+
+#intro-2 {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0A0101;
+}
+
+.citation {
+  font-size: 2rem;
 }
 
 p {
@@ -118,10 +136,6 @@ hr {
   flex-wrap: wrap;
   justify-content: left;
   margin-top: 2rem;
-}
-
-.legend {
-  border-right: 1px solid rgba(0,0,0,.2);
 }
 
 .legend > .desc {
@@ -212,10 +226,11 @@ hr {
 }
 
 #detCont {
-    width: 100%;
+    width: 90%;
     position: fixed;
     bottom: 0;
     z-index: 9999;
+    pointer-events: none;
   }
 
 svg {
@@ -353,15 +368,7 @@ button:focus {
   left: 3rem;
   opacity: 0;
   transition: all 0.3s ease;
-  font-family: -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen-Sans,
-  Ubuntu,
-  Cantarell,
-  "Helvetica Neue",
-  sans-serif;
+  pointer-events: none;
 }
 
 #tooltip p{
@@ -371,6 +378,7 @@ button:focus {
   font-size: 1rem;
   transition: .3s ease;
   display: inline-block;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .info {
@@ -395,6 +403,10 @@ button:focus {
 }
 
 /* Mappa */
+
+#map {
+  margin-top: 4rem;
+}
 
 #map svg{
   border-top: 1px solid #EFEAEA;
@@ -430,6 +442,12 @@ button:focus {
 
 #map .date {
   font-size: 1.6rem;
+}
+
+.tip {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.5;
 }
 
 @media only screen and (max-width : 1224px) {

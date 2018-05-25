@@ -117,8 +117,6 @@ d3.tsv("sample.tsv", function(error, data) {
 		return d.title
 	})
 
-	d3.select("#celeb .event:first-child").classed("legend", true)
-
 	// interazioni desktop
 	d3.selectAll('.event').on("mouseenter", function(d){
 
