@@ -8,7 +8,7 @@ let path = d3.geoPath()
 let mapSvg = d3.select("#map").append("svg")
 .attr("width", mapWidth)
 .attr("height", mapHeight)
-.style("background", "#EFEAEA");
+.style("background", "#9fc6c3");
 
 let zoom = d3.zoom()
 .scaleExtent([1, 8])
@@ -51,11 +51,11 @@ let interpolators = [
     ];
 
 
-    let colorScale = d3.scaleSequential(d3.interpolateGreys);
+    // let colorScale = d3.scaleSequential(d3.interpolateGreys);
 
-    // let colorScale = d3.scaleLinear()
-    // .interpolate(d3.interpolateRgb)
-    // .range([d3.rgb("#0A0101"), d3.rgb('#E63B2E')]);
+    let colorScale = d3.scaleLinear()
+    .interpolate(d3.interpolateRgb)
+    .range([d3.rgb("#a6adac"), d3.rgb('#EA1515')]);
 
     d3.json("us.json", function(error, us) {
 
@@ -86,7 +86,7 @@ let interpolators = [
     .attr("cy", function(d) {
      return projection([d.lon, d.lat])[1];
    })
-    .attr("r", 2.5)
+    .attr("r", 3)
     .classed("mapCircle", true)
     .attr("fill", d => { return colorScale(+d.year)})
 
@@ -96,7 +96,7 @@ let interpolators = [
       d3.selectAll(".mapCircle")
       .transition()
       .duration(250)
-      .attr("r", 2.5)
+      .attr("r", 3)
       .style("opacity", 0)
       d3.select(this).style("opacity", 1)
       .transition()
@@ -122,7 +122,7 @@ let interpolators = [
       d3.selectAll(".mapCircle").transition()
       .duration(250)
       .style("opacity", 1)
-      .attr("r", 2.5)
+      .attr("r", 3)
 
       mapTooltip.selectAll("p").remove()
 
@@ -134,7 +134,7 @@ let interpolators = [
       d3.selectAll(".mapCircle")
       .transition()
       .duration(250)
-      .attr("r", 2.5)
+      .attr("r", 3)
       .style("opacity", 0)
       d3.select(this).style("opacity", 1)
       .transition()
@@ -160,7 +160,7 @@ let interpolators = [
       d3.selectAll(".mapCircle").transition()
       .duration(250)
       .style("opacity", 1)
-      .attr("r", 2.5)
+      .attr("r", 3)
 
       mapTooltip.selectAll("p").remove()
 
@@ -172,7 +172,7 @@ let interpolators = [
 
 function zoomed() {
       map.selectAll("#map circle").attr("r", 2.5 / d3.event.transform.k);
-      map.style("stroke-width", 1.5 / d3.event.transform.k + "px");
+      map.style("stroke-width", 1 / d3.event.transform.k + "px");
       map.attr("transform", d3.event.transform);
     }
 

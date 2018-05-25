@@ -17,7 +17,7 @@ padding = 50;
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
     // .range(["#9A031E","#7a7a7a","#FFFFFF","#d3d3d3"]);
-    .range(["#c91212","#9fc6c3","#FFFFFF","#a6adac"]);
+    .range(["#EA1515","#9fc6c3","#FFFFFF","#a6adac"]);
 
     let x = d3.scaleTime()
     .range([0 + 2.5*padding, width - padding]);
@@ -248,7 +248,7 @@ padding = 50;
       })
 
       d3.selectAll('.d_sel').classed('selected', false).style('background','transparent')
-      d3.select(this).classed('selected', true).style('background','#C20114')
+      d3.select(this).classed('selected', true).style('background','#EA1515')
 
       data_set = this.value;
 

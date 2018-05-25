@@ -4,7 +4,7 @@ html {
 
 body {
   /*background: #EFE9E7;*/
-  background: snow;
+  background: #F9EFE3;
   /*font-family: -apple-system,
   BlinkMacSystemFont,
   "Segoe UI",
@@ -25,7 +25,7 @@ section {
 }
 
 a, a:visited {
-  color: #E63B2E;
+  color: #EA1515;
 }
 
 a:hover {
@@ -75,7 +75,7 @@ li {
 }
 
 .navbar a {
-  color: tomato;
+  color: #EA1515;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -142,6 +142,10 @@ hr {
   padding-right: 1rem;
 }
 
+#legend {
+  margin-top: 4rem;
+}
+
 #legend > * {
   font-size: 0.9rem;
 }
@@ -150,29 +154,112 @@ hr {
   margin: 0;
 }
 
-#legend p::before {
+#legend p {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.ill::before {
   content: "";
   display: inline-block;
   width: 1rem;
   height: 0.6rem;
   margin-right: 0.5rem;
   border: 1px solid rgba(0,0,0,.5);
-}
-
-.ill::before {
-  background: #E63B2E;
+  background: #EA1515;
 }
 
 .sane::before {
-  background: #4C4646;
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(0,0,0,.5);
+  background: #9fc6c3;
 }
 
 .unclear::before {
-  background: #9D9A9A;
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(0,0,0,.5);
+  background: #a6adac;
 }
 
 .unknown::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(0,0,0,.5);
   background: #FFFFFF;
+}
+
+.male::before {
+  content: "M";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.female::before {
+  content: "F";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.both::before {
+  content: "M & F";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.killed::before {
+  content: "×";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.suicide::before {
+  content: "•";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.captured::before {
+  content: "#";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
+}
+
+.fled::before {
+  content: "~";
+  font-weight: bold;
+  margin-right: 0.3rem;
+  position:relative;
+  font-size: 1rem;
+  top: 0.05rem;
 }
 
 .event {
@@ -330,9 +417,9 @@ button:focus {
 }
 
 .d_sel {
-  border: 1px solid #C20114;
+  border: 1px solid #EA1515;
   background: snow;
-  color: #C20114;
+  color: #EA1515;
 }
 
 .d_sel:hover {
@@ -409,8 +496,8 @@ button:focus {
 }
 
 #map svg{
-  border-top: 1px solid #EFEAEA;
-  border-bottom: 1px solid #EFEAEA;
+  border-top: 1px solid #9fc6c3;
+  border-bottom: 1px solid #9fc6c3;
   cursor: move;
 }
 
@@ -418,7 +505,7 @@ button:focus {
   position: absolute;
   margin-top: 0.5rem;
   margin-left: 1rem;
-  width: 12rem;
+  width: 13rem;
   pointer-events: none;
 }
 
@@ -428,8 +515,8 @@ button:focus {
 }
 
 .states {
-  fill: snow;
-  stroke: #EFEAEA;
+  fill: #F9EFE3;
+  stroke: #9fc6c3;
 }
 
 .mapCircle {
