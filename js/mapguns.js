@@ -67,7 +67,7 @@ let interpolators = [
       .datum(topojson.feature(us, us.objects.states))
       .attr("d", path);
 
-      d3.tsv("/data/geo.tsv", function(error, data) {
+      d3.tsv("data/geo.tsv", function(error, data) {
         if (error) throw error;
 
         colorScale.domain(d3.extent(data, d => { 
