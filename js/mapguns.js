@@ -57,7 +57,7 @@ let interpolators = [
     .interpolate(d3.interpolateRgb)
     .range([d3.rgb("#a6adac"), d3.rgb('#EA1515')]);
 
-    d3.json("../data/us.json", function(error, us) {
+    d3.json("./data/us.json", function(error, us) {
 
       projection.scale([mapWidth * 1.5])
       .translate([mapWidth / 2, mapHeight / 2])
@@ -67,7 +67,7 @@ let interpolators = [
       .datum(topojson.feature(us, us.objects.states))
       .attr("d", path);
 
-      d3.tsv("../data/geo.tsv", function(error, data) {
+      d3.tsv("./data/geo.tsv", function(error, data) {
         if (error) throw error;
 
         colorScale.domain(d3.extent(data, d => { 
