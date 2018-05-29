@@ -7,7 +7,7 @@ let sizeGlyph = d3.scaleSqrt()
 .range([4,35]);
 
 // caricamento dataset
-d3.tsv("data/sample.tsv", function(error, data) {
+d3.tsv("/data/sample.tsv", function(error, data) {
 	if (error) throw error;
 
 	sizeGlyph.domain(d3.extent(data, function(d) { 
