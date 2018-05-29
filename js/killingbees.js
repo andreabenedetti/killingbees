@@ -75,7 +75,7 @@ padding = 50;
 
     // Parse dataset
 
-    d3.csv("killingbees/data/shootings.csv", function(error, data) {
+    d3.csv("/data/shootings.csv", function(error, data) {
       if (error) throw error;
 
       x.domain(d3.extent(data, function(d) { 
