@@ -17,6 +17,7 @@ body {
   font-family: "EB Garamond";
   color: #0A0101;
   overflow-x: hidden;
+  z-index: -2;
 }
 
 section {
@@ -36,10 +37,55 @@ a:hover {
   padding: 0;
 }
 
+#nav {
+  background: #0A0101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-wrap: wrap;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+#nav .open:hover {
+  cursor: pointer;
+}
+
+#nav .open {
+  width: 2rem;
+  height: 0.3rem;
+  background: rgba(255,255,255,.5);
+  border-radius: 0.15rem;
+}
+
+.nav-link {
+  color: #F9EFE3;
+  font-family: "Helvetica", sans-serif;
+  text-transform: lowercase;
+  margin-right: 3rem;
+}
+
+.disabled {
+  display: none;
+}
+
+#sections {
+  position: absolute;
+  top: 0;
+  height: 2rem;
+  background: red;
+  z-index: -1;
+}
+
+#content {
+  z-index: 0;
+}
+
 #intro {
   padding: 0;
   margin-bottom: 3rem;
-  border-top: 10px solid #0A0101;
   border-bottom: 1px solid #0A0101;
   display: flex;
   align-items: center;
@@ -49,6 +95,14 @@ a:hover {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #0A0101;
+}
+
+#intro-2 b {
+  background: #EA1515;
+  color: #F9EFE3;
+  font-weight: 400;
+  padding: 0 0.6rem 0.2rem 0.6rem;
+  border: 1px solid #0A0101;
 }
 
 .citation {
@@ -165,7 +219,6 @@ hr {
   width: 1rem;
   height: 0.6rem;
   margin-right: 0.5rem;
-  border: 1px solid rgba(0,0,0,.5);
   background: #EA1515;
 }
 
@@ -175,7 +228,6 @@ hr {
   width: 1rem;
   height: 0.6rem;
   margin-right: 0.5rem;
-  border: 1px solid rgba(0,0,0,.5);
   background: #9fc6c3;
 }
 
@@ -185,7 +237,6 @@ hr {
   width: 1rem;
   height: 0.6rem;
   margin-right: 0.5rem;
-  border: 1px solid rgba(0,0,0,.5);
   background: #a6adac;
 }
 
@@ -195,7 +246,6 @@ hr {
   width: 1rem;
   height: 0.6rem;
   margin-right: 0.5rem;
-  border: 1px solid rgba(0,0,0,.5);
   background: #FFFFFF;
 }
 
@@ -287,7 +337,7 @@ hr {
 }
 
 .location {
-  text-transform: uppercase;
+  font-style: italic;
   font-size: 0.8rem;
 }
 
@@ -333,7 +383,6 @@ svg {
 
 .domain {
   stroke: #777;
-  display: none;
 }
 
 .tick text {
@@ -374,6 +423,7 @@ svg {
 }
 
 button {
+  background: #F9EFE3;
   padding: 0.2rem 0.5rem;
   border: 1px solid rgba(0,0,0,.3);
   border-radius: 1px;
@@ -408,7 +458,6 @@ button:focus {
 
 .b_sel {
   border: 1px solid #0A0101;
-  background: snow;
   color: #0A0101;
 }
 
@@ -418,7 +467,6 @@ button:focus {
 
 .d_sel {
   border: 1px solid #EA1515;
-  background: snow;
   color: #EA1515;
 }
 

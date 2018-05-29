@@ -45,41 +45,49 @@
         </div> 
       </div>
     </nav> -->
-
+    <nav id="nav">
+      <div class="open"></div>
+      <a href="#intro"><div class="nav-link">Intro</div></a>
+      <a href="#highlight"><div class="nav-link">What</div></a>
+      <a href="#location"><div class="nav-link">Where</div></a>
+      <a href="#shootings"><div class="nav-link">How</div></a>
+      <a href="#killingbees"><div class="nav-link">Who</div></a>
+    </nav>
 
     <!-- Page Content -->
-    <section id="intro">
-      <div class="container">
-        <div class="row">
-          <div class="offset-sm-1 offset-md-2 col-sm-11 col-md-6">
-            <h1>he was <br />always nice</h1>
-            <h3>An Exploration On Mass Shootings</h3>
-          </div>
-        </div>
-      </section>
-
-      <section id="intro-2">
+    <content id="content">
+      <section id="intro">
         <div class="container">
           <div class="row">
-            <div class="offset-lg-2 col-lg-8">
-              <p id="people" class="citation">The FBI defines a mass shooting as an event of <b>gun violence where more than four people</b> are involved as victims.</p>
-              <p class="citation">From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
+            <div class="offset-sm-1 offset-md-2 col-sm-11 col-md-6">
+              <h1>he was <br />always nice</h1>
+              <h3>An Exploration On Mass Shootings</h3>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="highlight">
-        <div class="container">
-          <div class="row">
-            <div class="offset-lg-2 col-lg-8">
-              <h2>What?</h2>
-              <h3>the most infamous events</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="tip">Hover or touch the glyphs to get additional information.</p>
+        <section id="intro-2">
+          <div class="container">
+            <div class="row">
+              <div class="offset-lg-2 col-lg-8">
+                <p id="people" class="citation">The FBI defines a mass shooting as an event of <b>gun violence where more than four people</b> are involved as victims.</p>
+                <p class="citation">From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section id="highlight">
+          <div class="container">
+            <div class="row">
+              <div class="offset-lg-2 col-lg-8">
+                <h2>What?</h2>
+                <h3>the most infamous events</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="tip">Hover or touch the glyphs to get additional information. These events were chosen based on wether or not they had a Wikipedia page dedicated to them.</p>
+              </div>
+            </div>
+          </div>
           <div class="container-fluid">
             <div class="row">
               <div id="legend" class="offset-1 col-4">
@@ -103,124 +111,164 @@
                 <p class="fled">fled</p>
               </div>
               <div id="celeb" class="offset-1 col-10">
-                
-              </div>
-            </div>
-            </div>
-            <div class="container">
-              <div id="detCont" class="row">
-                <h4 id="details"></h4>
+
               </div>
             </div>
           </div>
+          <div class="container">
+            <div id="detCont" class="row">
+              <h4 id="details"></h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="location">
+        <div class="container">
+          <div class="row">
+            <div class="offset-lg-2 col-lg-8">
+              <h2>Where?</h2>
+              <h3>a map to understand where incidents occur</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="tip">Zoom and drag the map, and hover on the circles to get additional information.</p>
+            </div>
+          </div>
+        </div>
+        <div id="map">
+          <div class="container-fluid">
+            <div class="mapTooltip"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="shootings">
+        <div class="container">
+          <div class="row">
+            <div class="offset-lg-2 col-lg-8">
+              <h2>How?</h2>
+              <h3>the tools used to kill, and where</h3>
+              <p>Treemap delle armi utilizzate per diverse tipologie di luoghi</p>
+              <p>Dati: armi, luoghi</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="victims">
+          <div class="container">
+            <div class="row">
+              <div class="offset-lg-2 col-lg-8">
+                <h2>(io questa sezione la toglierei)</h2>
+                <h3>all about victims</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Scatterplot (da decidere i valori)</p>
+                <p>Dati: popolazione dei luoghi, vittime, poliziotti uccisi</p>
+              </div>
+            </div>
           </section>
 
-          <section id=location">
+          <section id="killingbees" class="container-fluid">
+            <div class="container">
+              <div class="row">
+                <div id="killingbees-ui" class="offset-lg-2 col-lg-8">
+                  <div id="tooltip"></div>
+                  <h2>Who?</h2>
+                  <h3>identikits</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p class="tip">Hover or touch the circles to get additional information.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="conclusion">
             <div class="container">
               <div class="row">
                 <div class="offset-lg-2 col-lg-8">
-                  <h2>Where?</h2>
-                  <h3>a map to understand where incidents occur</h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p class="tip">Zoom and drag the map, and hover on the circles to get additional information.</p>
                 </div>
               </div>
             </div>
-            <div id="map">
-              <div class="container-fluid">
-                <div class="mapTooltip"></div>
+          </section>
+
+          <div class="container-fluid footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <h5>sources</h5>
+                  <ul>
+                    <li><a href="/" target="_blank">Kaggle</a></li>
+                    <li><a href="/" target="_blank">Stanford University</a></li>
+                    <li><a href="/" target="_blank">Wikipedia</a></li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <h5>website by</h5>
+                  <ul>
+                    <li>Andrea Benedetti</li>
+                    <li>Giacomo Flaim</li>
+                    <li>Beatrice Gobbo</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            </section>
+          </div>
+        </content>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <section id="shootings">
-              <div class="container">
-                <div class="row">
-                  <div class="offset-lg-2 col-lg-8">
-                    <h2>How?</h2>
-                    <h3>the tools used to kill, and where</h3>
-                    <p>Treemap delle armi utilizzate per diverse tipologie di luoghi</p>
-                    <p>Dati: armi, luoghi</p>
-                  </div>
-                </div>
-              </section>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/topojson.v2.min.js"></script>
+        <script src="https://d3js.org/d3-ease.v1.min.js"></script>
 
-              <section id="victims">
-                <div class="container">
-                  <div class="row">
-                    <div class="offset-lg-2 col-lg-8">
-                      <h2>(io questa sezione la toglierei)</h2>
-                      <h3>all about victims</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Scatterplot (da decidere i valori)</p>
-                      <p>Dati: popolazione dei luoghi, vittime, poliziotti uccisi</p>
-                    </div>
-                  </div>
-                </section>
+        <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+        <script src="killingbees.js"></script>
+        <script src="mapguns.js"></script>
+        <script src="celeb.js"></script>
+        <script>
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+              e.preventDefault();
 
-                <section id="killingbees" class="container-fluid">
-                  <div class="container">
-                    <div class="row">
-                      <div id="killingbees-ui" class="offset-lg-2 col-lg-8">
-                        <div id="tooltip"></div>
-                        <h2>Who?</h2>
-                        <h3>identikits</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p class="tip">Hover or touch the circles to get additional information.</p>
-                      </div>
-                    </div>
-                  </div>
-              </section>
+              document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+              });
+            });
+          });
 
-              <section id="conclusion">
-                <div class="container">
-                    <div class="row">
-                      <div class="offset-lg-2 col-lg-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      </div>
-                    </div>
-                  </div>
-              </section>
+          $("#intro").height( window.innerHeight - 20 );
+          $("#intro-2").height( window.innerHeight * 0.7 );
 
-              <div class="container-fluid footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-8">
-                      <h5>sources</h5>
-                      <ul>
-                        <li><a href="/" target="_blank">Kaggle</a></li>
-                        <li><a href="/" target="_blank">Stanford University</a></li>
-                        <li><a href="/" target="_blank">Wikipedia</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                      <h5>website by</h5>
-                      <ul>
-                        <li>Andrea Benedetti</li>
-                        <li>Giacomo Flaim</li>
-                        <li>Beatrice Gobbo</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          $("#nav").height(20);
+          $(".nav-link").addClass("disabled");
 
-              <!-- Bootstrap core JavaScript -->
-              <script src="vendor/jquery/jquery.min.js"></script>
-              <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+          d3.select(".open").on("click", d => {
+            console.log("exp")
+            $("#nav").animate({
+              height: 60
+            }, 1000, "easeInOutExpo" );
 
-              <script src="https://d3js.org/d3.v4.min.js"></script>
-              <script src="https://d3js.org/topojson.v2.min.js"></script>
-              <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+            $(".open").fadeOut(400).addClass("disabled")
 
-              <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
-              <script src="killingbees.js"></script>
-              <script src="mapguns.js"></script>
-              <script src="celeb.js"></script>
-              <script>
-                $("#intro").height( window.innerHeight - 20 );
-                $("#intro-2").height( window.innerHeight * 0.7 );
-              </script>
-            </body>
+            $(".nav-link").fadeIn(800).removeClass("disabled")
 
-            </html>
+          })
+
+          d3.selectAll(".nav-link").on("click", d => {
+            console.log("shr")
+            $("#nav").animate({
+              height: 20
+            }, 1000, "easeInOutExpo" );
+
+            $(".nav-link").fadeOut().addClass("disabled")
+
+            $(".open").delay(400).fadeIn(800).removeClass("disabled")
+          })
+        </script>
+      </body>
+
+      </html>
