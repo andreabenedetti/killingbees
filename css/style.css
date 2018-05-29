@@ -601,3 +601,12 @@ Methodology
   font-size: 1rem;
   text-transform: none;
 }
+
+#methodology h1:before {
+  content:"";
+}
+
+#methodology a h4:before {
+  content:"←";
+  margin-right: 1rem;
+}
