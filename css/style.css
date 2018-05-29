@@ -591,3 +591,13 @@ body {
 }
 
 }
+
+/* -----
+Methodology
+----- */
+
+#methodology {
+  background: snow;
+  font-size: 1rem;
+  text-transform: none;
+}
