@@ -54,17 +54,33 @@ a:hover {
 }
 
 #nav .open {
-  width: 2rem;
-  height: 0.3rem;
-  background: rgba(255,255,255,.5);
-  border-radius: 0.15rem;
+  width: 4rem;
+  height: 0.4rem;
+  background: white;
+  opacity: .5;
+  border-radius: 0.2rem;
+  transition: opacity 0.3s ease;
+}
+
+#nav .open:hover {
+  opacity: 0.8;
+}
+
+#nav a {
+  color: #F9EFE3;
+  transition: color 0.2s ease;
+}
+
+#nav a:hover {
+  color: #EA1515;
+  text-decoration: none;
 }
 
 .nav-link {
-  color: #F9EFE3;
   font-family: "Helvetica", sans-serif;
   text-transform: lowercase;
   margin-right: 3rem;
+  font-weight: 700;
 }
 
 .disabled {
@@ -147,6 +163,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -1px;
   text-transform: lowercase;
+  word-break: break-all;
 }
 
 h1 {
@@ -154,15 +171,13 @@ h1 {
   line-height: 0.9;
 }
 
-h1:before {
-  content:'"';
-  margin-right: .5rem;
-  position: absolute;
-  left: -1.5rem;
-}
-
 h2 {
   font-size: 3rem;
+}
+
+h2::after {
+  content: "?";
+  color: #EA1515;
 }
 
 h6 {
@@ -602,11 +617,9 @@ Methodology
   text-transform: none;
 }
 
-#methodology h1:before {
-  content:"";
-}
-
 #methodology a h4:before {
   content:"←";
   margin-right: 1rem;
 }
+
+/* LOADER */
