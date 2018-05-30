@@ -20,13 +20,13 @@ padding = 50;
     .range(["#EA1515","#9fc6c3","#FFFFFF","#a6adac"]);
 
     let x = d3.scaleTime()
-    .range([0 + 2.5*padding, width - padding]);
+    .range([0 + 2.5*padding, width - padding * 0.7]);
 
     let x1 = d3.scaleLinear()
-    .range([0 + 2.5*padding, width - padding]);
+    .range([0 + 2.5*padding, width - padding * 0.7]);
 
     let x2 = d3.scaleLog()
-    .range([0 + 2.5*padding, width - padding]);
+    .range([0 + 2.5*padding, width - padding * 0.7]);
 
 
     let y0 = d3.scalePoint()
@@ -60,7 +60,7 @@ padding = 50;
     let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - (padding * 0.3));
     let ageAxis = d3.axisBottom(x1)
     .tickSize(height - (padding * 0.3));
-    let dateAxis = d3.axisBottom(x).ticks(20)
+    let dateAxis = d3.axisBottom(x).ticks(10)
     .tickFormat(d3.timeFormat("%Y"))
     .tickSize(height - (padding * 0.3));
 
