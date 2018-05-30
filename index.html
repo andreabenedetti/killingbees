@@ -18,8 +18,13 @@
 
 <body>
 
+  <div class="loader">
+    <div class="dot"></div>
+    <div class="dot-a"></div>
+  </div>
+
   <nav id="nav">
-    <div class="open"></div>
+    <div class="open">chapters</div>
     <a href="#intro"><div class="nav-link">Intro</div></a>
     <a href="#highlight"><div class="nav-link">What</div></a>
     <a href="#location"><div class="nav-link">Where</div></a>
@@ -44,8 +49,8 @@
         <div class="container">
           <div class="row">
             <div class="offset-lg-2 col-lg-8">
-              <p id="people" class="citation">The FBI defines a mass shooting as an event of <b>gun violence where more than four people</b> are involved as victims.</p>
-              <p class="citation">From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
+              <span id="people" class="citation">The FBI defines a mass shooting as an event of <b>gun violence where more than four people</b> are involved as victims.</p>
+              <span class="citation">From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
             </div>
           </div>
         </div>
@@ -164,7 +169,7 @@
           </div>
         </section>
 
-        <div class="container-fluid footer">
+        <div id="footer" class="container-fluid">
           <div class="container">
             <div class="row">
               <div class="col-8">
@@ -178,7 +183,7 @@
               <div class="col-4">
                 <h5>website by</h5>
                 <ul>
-                  <li>Andrea Benedetti</li>
+                  <li><a href="http://andrea-benedetti.it">Andrea Benedetti</a></li>
                   <li>Giacomo Flaim</li>
                   <li>Beatrice Gobbo</li>
                 </ul>
@@ -201,6 +206,10 @@
       <script src="js/mapguns.js"></script>
       <script src="js/celeb.js"></script>
       <script>
+        $(window).on("load", function() {
+      $(".loader").fadeOut("slow");
+});
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
             e.preventDefault();

@@ -3,18 +3,8 @@ html {
 }
 
 body {
-  /*background: #EFE9E7;*/
   background: #F9EFE3;
-  /*font-family: -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen-Sans,
-  Ubuntu,
-  Cantarell,
-  "Helvetica Neue",
-  sans-serif;*/
-  font-family: "EB Garamond";
+  font-family: "EB Garamond", serif;
   color: #0A0101;
   overflow-x: hidden;
   z-index: -2;
@@ -25,12 +15,16 @@ section {
   padding-bottom: 5rem;
 }
 
-a, a:visited {
+#footer a, #footer a:visited {
   color: #EA1515;
+  transition: all 0.3s ease;
 }
 
-a:hover {
-  text-decoration: underline;
+#footer a:hover {
+  color: snow;
+  padding: 0 0.5rem 0 1rem;
+  background: #EA1515;
+  text-decoration: none;
 }
 
 .container-fluid {
@@ -49,20 +43,19 @@ a:hover {
   z-index: 9999;
 }
 
-#nav .open:hover {
-  cursor: pointer;
-}
-
 #nav .open {
-  width: 4rem;
-  height: 0.4rem;
-  background: white;
+  color: #F9EFE3;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  font-weight: 700;
   opacity: .5;
-  border-radius: 0.2rem;
   transition: opacity 0.3s ease;
 }
 
 #nav .open:hover {
+  cursor: pointer;
   opacity: 0.8;
 }
 
@@ -101,10 +94,19 @@ a:hover {
 
 #intro {
   padding: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   border-bottom: 1px solid #0A0101;
   display: flex;
   align-items: center;
+  background-image: url("../images/artwork.png");
+  background-size: 1000px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+::selection {
+  background: #EA1515;
+  color: #F9EFE3;
 }
 
 #intro-2 {
@@ -113,16 +115,9 @@ a:hover {
   border-bottom: 1px solid #0A0101;
 }
 
-#intro-2 b {
-  background: #EA1515;
-  color: #F9EFE3;
-  font-weight: 400;
-  padding: 0 0.6rem 0.2rem 0.6rem;
-  border: 1px solid #0A0101;
-}
-
 .citation {
   font-size: 2rem;
+  background: #EA1515;
 }
 
 p {
@@ -136,6 +131,7 @@ ul {
 
 li {
   list-style-type: none;
+  margin-bottom: 0.5rem;
 }
 
 .navbar {
@@ -545,7 +541,7 @@ button:focus {
   margin-bottom: 1rem;
 }
 
-.footer {
+#footer {
   background: #0A0101;
   margin-top: 1rem;
   color: snow;
@@ -623,3 +619,33 @@ Methodology
 }
 
 /* LOADER */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3,3);
+    opacity: 0;
+  }
+}
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #0A0101;
+}
+
+.dot-a {
+  background: #F9EFE3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  animation: 1s pulse ease-out infinite;
+}
