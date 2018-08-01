@@ -1,12 +1,11 @@
-
 let killingbees = document.getElementById("killingbees");
 
-let width = window.innerWidth * 0.95,
+let width = d3.selectAll("#killingbees").node().getBoundingClientRect().width,
 height = 600,
-padding = 50; 
+padding = 20; 
 
     let svg = d3.select('#killingbees').append('svg')
-    .attr('width', width)
+    .attr('width', width - padding)
     .attr('height', height)
 
     // parse values in dataset
@@ -16,17 +15,16 @@ padding = 50;
     // various scales, could be optimized
     let colors = d3.scaleOrdinal()
     .domain(["Yes", "No", "Unknown", "Unclear"])
-    // .range(["#9A031E","#7a7a7a","#FFFFFF","#d3d3d3"]);
     .range(["#EA1515","#9fc6c3","#FFFFFF","#a6adac"]);
 
     let x = d3.scaleTime()
-    .range([0 + 2.5*padding, width - padding * 0.7]);
+    .range([0 + 5*padding, width - padding * 2]);
 
     let x1 = d3.scaleLinear()
-    .range([0 + 2.5*padding, width - padding * 0.7]);
+    .range([0 + 5*padding, width - padding * 2]);
 
     let x2 = d3.scaleLog()
-    .range([0 + 2.5*padding, width - padding * 0.7]);
+    .range([0 + 5*padding, width - padding * 2]);
 
 
     let y0 = d3.scalePoint()
@@ -39,35 +37,35 @@ padding = 50;
 
     let y2 = d3.scalePoint()
     .domain(["Open","Open+Close","Close","na"])
-    .range([0 + padding, height - padding]);
+    .range([0 + 5 * padding, height - padding]);
 
     let y3 = d3.scalePoint()
     .domain(["Yes","No","Unclear","Unknown"])
-    .range([0 + padding, height - padding]);
+    .range([0 + 5 * padding, height - padding]);
 
     let y4 = d3.scalePoint()
     .domain(["Male","Female","Male/Female","Unknown"])
-    .range([0 + padding, height - padding]);
+    .range([0 + 5 * padding, height - padding]);
 
     let y5 = d3.scalePoint()
     .domain(["White","Asian","Asian American","Black","Latino","Native","Other","Unknown"])
-    .range([0 + padding, height - padding]);
+    .range([0 + 5 * padding, height - padding]);
 
     let size = d3.scaleSqrt()
-    .range([2,30]);
+    .range([2,20]);
 
     // Assi
-    let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - (padding * 0.3));
+    let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - (padding));
     let ageAxis = d3.axisBottom(x1)
-    .tickSize(height - (padding * 0.3));
+    .tickSize(height - (padding));
     let dateAxis = d3.axisBottom(x).ticks(10)
     .tickFormat(d3.timeFormat("%Y"))
-    .tickSize(height - (padding * 0.3));
+    .tickSize(height - (padding));
 
-    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
-    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
-    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
-    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (3.5*padding)).tickPadding(20);
+    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (6 * padding)).tickPadding(20);
+    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (6 * padding)).tickPadding(20);
+    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (6 * padding)).tickPadding(20);
+    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (6 * padding)).tickPadding(20);
 
     // starting visualization with:
     let data_set = "health";

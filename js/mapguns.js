@@ -1,4 +1,5 @@
-let mapWidth = d3.selectAll("#map").node().getBoundingClientRect().width,
+let margin = 10,
+mapWidth = d3.selectAll("#map").node().getBoundingClientRect().width,
 mapHeight =  window.innerHeight * 0.8;
 
 let projection = d3.geoAlbersUsa();
@@ -57,6 +58,11 @@ let interpolators = [
     .interpolate(d3.interpolateRgb)
     .range([d3.rgb("#a6adac"), d3.rgb('#EA1515')]);
 
+    let colorLegend = d3.scaleLinear()
+    .interpolate(d3.interpolateRgb)
+    .range([d3.rgb("#a6adac"), d3.rgb('#EA1515')])
+    .domain([0,200]);
+
     d3.json("data/us.json", function(error, us) {
 
       projection.scale([mapWidth * 1.5])
@@ -75,6 +81,39 @@ let interpolators = [
           ));
 
     // console.log(JSON.stringify(data, null, "\t"));
+
+    // Legenda
+    let colorKey = mapSvg.append("g")
+    .classed("legend", true)
+    .attr("transform", "translate(" + ( margin * 4 ) + "," + ( mapHeight - 5 * margin ) + ")");
+
+    colorKey.append("text")
+    .text("Year of the event")
+    .classed("label", true)
+    .attr("x", 0)
+    .attr("y", 0);
+
+    colorKey.selectAll("legend")
+    .data(d3.range(200), function(d) { console.log(d); })
+    .enter().append("rect")
+    .classed(".scale", true)
+    .attr("x", function(d, i) { return i; })
+    .attr("y", 6)
+    .attr("height", 10)
+    .attr("width", 2)
+    .style("fill", function(d, i ) { return colorLegend(d); });
+
+    colorKey.append("text")
+    .text("1966")
+    .classed("label", true)
+    .attr("x", 0)
+    .attr("y", 31);
+
+    colorKey.append("text")
+    .text("2018")
+    .classed("label", true)
+    .attr("x", 173)
+    .attr("y", 31);
 
     map.selectAll("circle")
     .data(data)
@@ -168,14 +207,14 @@ let interpolators = [
 
   });
 
-});
+    });
 
-function zoomed() {
+    function zoomed() {
       map.selectAll("#map circle").attr("r", 2.5 / d3.event.transform.k);
       map.style("stroke-width", 1 / d3.event.transform.k + "px");
       map.attr("transform", d3.event.transform);
     }
 
-        function stopped() {
-  if (d3.event.defaultPrevented) d3.event.stopPropagation();
-}
+    function stopped() {
+      if (d3.event.defaultPrevented) d3.event.stopPropagation();
+    }

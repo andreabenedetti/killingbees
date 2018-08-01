@@ -117,7 +117,6 @@ section {
 
 .citation {
   font-size: 2rem;
-  background: white;
 }
 
 p {
@@ -222,6 +221,12 @@ hr {
 #legend p {
   display: inline-block;
   margin-right: 0.5rem;
+}
+
+.label {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
 }
 
 .ill::before {
@@ -540,6 +545,10 @@ button:focus {
 
 #killingbees-ui {
   margin-bottom: 1rem;
+}
+
+#killingbees svg {
+  overflow-x: hidden;
 }
 
 #footer {
