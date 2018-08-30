@@ -47,7 +47,6 @@ section {
   color: #F9EFE3;
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.15rem;
   text-transform: uppercase;
   font-weight: 700;
   opacity: .5;
@@ -161,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: 700;
   letter-spacing: -1px;
-  text-transform: lowercase;
+  /*text-transform: lowercase;*/
   word-break: break-all;
 }
 
@@ -172,11 +171,6 @@ h1 {
 
 h2 {
   font-size: 3rem;
-}
-
-h2::after {
-  content: "?";
-  color: #EA1515;
 }
 
 h6 {
@@ -407,7 +401,7 @@ svg {
 }
 
 .tick text {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-family: -apple-system,
   BlinkMacSystemFont,
   "Segoe UI",
