@@ -2,10 +2,10 @@ let killingbees = document.getElementById("killingbees");
 
 let width = d3.selectAll("#killingbees").node().getBoundingClientRect().width,
 height = 600,
-padding = 20; 
+padding = 100; 
 
     let svg = d3.select('#killingbees').append('svg')
-    .attr('width', width - padding)
+    .attr('width', width)
     .attr('height', height)
 
     // parse values in dataset
@@ -18,13 +18,13 @@ padding = 20;
     .range(["#EA1515","#9fc6c3","#FFFFFF","#a6adac"]);
 
     let x = d3.scaleTime()
-    .range([0 + 5*padding, width - padding * 2]);
+    .range([0 + padding, width - padding]);
 
     let x1 = d3.scaleLinear()
-    .range([0 + 5*padding, width - padding * 2]);
+    .range([0 + padding, width - padding]);
 
     let x2 = d3.scaleLog()
-    .range([0 + 5*padding, width - padding * 2]);
+    .range([0 + padding, width - padding]);
 
 
     let y0 = d3.scalePoint()
@@ -33,39 +33,39 @@ padding = 20;
       return d.data } )
 
     let y = d3.scaleLinear()
-    .range([(0 + padding)*2, height - padding * 2]);
+    .range([0 + padding, height - 5]);
 
     let y2 = d3.scalePoint()
     .domain(["Open","Open+Close","Close","na"])
-    .range([0 + 5 * padding, height - padding]);
+    .range([0 + 50, height - 50]);
 
     let y3 = d3.scalePoint()
     .domain(["Yes","No","Unclear","Unknown"])
-    .range([0 + 5 * padding, height - padding]);
+    .range([0 + 50, height - 50]);
 
     let y4 = d3.scalePoint()
     .domain(["Male","Female","Male/Female","Unknown"])
-    .range([0 + 5 * padding, height - padding]);
+    .range([0 + 50, height - 50]);
 
     let y5 = d3.scalePoint()
     .domain(["White","Asian","Asian American","Black","Latino","Native","Other","Unknown"])
-    .range([0 + 5 * padding, height - padding]);
+    .range([0 + 50, height - 50]);
 
     let size = d3.scaleSqrt()
     .range([2,20]);
 
     // Assi
-    let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - (padding));
+    let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - 20);
     let ageAxis = d3.axisBottom(x1)
-    .tickSize(height - (padding));
-    let dateAxis = d3.axisBottom(x).ticks(10)
+    .tickSize(height - 20);
+    let dateAxis = d3.axisBottom(x).ticks(20)
     .tickFormat(d3.timeFormat("%Y"))
-    .tickSize(height - (padding));
+    .tickSize(height - 20);
 
-    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - (6 * padding)).tickPadding(20);
-    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - (6 * padding)).tickPadding(20);
-    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - (6 * padding)).tickPadding(20);
-    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - (6 * padding)).tickPadding(20);
+    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - 200).tickPadding(10);
+    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - 200).tickPadding(10);
+    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - 200).tickPadding(10);
+    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - 200).tickPadding(10);
 
     // starting visualization with:
     let data_set = "health";
@@ -80,7 +80,6 @@ padding = 20;
         d.value = parseDate(d.value);
         d.value = +d.value;
         return d.value;
-
       }));
 
       x1.domain(d3.extent(data, function(d) { 
@@ -177,27 +176,26 @@ padding = 20;
       .classed("info", true)
       .text(d.kills + " victims")
       .attr("transform", "translate(0, " + 12 + ")")
-
       
       tooltip.append("p")
       .classed("info", true)
-      .text("in a " + d.location + " location")
+      .text("in a " + d.location + " location, ")
       .attr("transform", "translate(0, " + 24 + ")")
+
+      tooltip.append("p")
+      .classed("info", true)
+      .text("by a " + d.age + " years old")
+      .attr("transform", "translate(0, " + 58 + ")")
+
+      tooltip.append("p")
+      .classed("info", true)
+      .text(d.race + " " + d.gender + ", ")
+      .attr("transform", "translate(0, " + 70 + ")")
 
       tooltip.append("p")
       .classed("info", true)
       .text("mental illness: " + d.health)
       .attr("transform", "translate(0, " + 46 + ")")
-
-      tooltip.append("p")
-      .classed("info", true)
-      .text(d.age + " years old")
-      .attr("transform", "translate(0, " + 58 + ")")
-
-      tooltip.append("p")
-      .classed("info", true)
-      .text(d.race)
-      .attr("transform", "translate(0, " + 70 + ")")
     })
 
     d3.selectAll('.circ').on("mouseleave", function(d){
@@ -284,16 +282,16 @@ padding = 20;
         .text(function(d){
           switch(d){
             case "Open":
-            return "all'aperto";
+            return "Open";
             break;
             case "Open+Close":
-            return "aperto e chiuso";
+            return "Open and close";
             break;
             case "Close":
-            return "al chiuso";
+            return "Close";
             break;
             case "na":
-            return "non disponibile";
+            return "Not Available";
             break;
           }
         })
@@ -307,16 +305,16 @@ padding = 20;
         .text(function(d){
           switch(d){
             case "Male":
-            return "uomo";
+            return "Male";
             break;
             case "Female":
-            return "donna";
+            return "Female";
             break;
             case "Male/Female":
-            return "uomo e donna";
+            return "Male and female";
             break;
             case "Unknown":
-            return "non disponibile";
+            return "Not Available";
             break;
           }
         })

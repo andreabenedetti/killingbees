@@ -115,6 +115,10 @@ section {
   border-bottom: 1px solid #0A0101;
 }
 
+#highlight {
+  overflow-x: hidden;
+}
+
 .citation {
   font-size: 2rem;
 }

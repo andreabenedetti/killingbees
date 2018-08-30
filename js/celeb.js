@@ -121,11 +121,11 @@ d3.tsv("data/sample.tsv", function(error, data) {
 	d3.selectAll('.event').on("mouseenter", function(d){
 
 
-		d3.selectAll(".event").style("opacity", 0.3)
+		d3.selectAll(".event").style("opacity", 0.1)
 		d3.select(this).style("opacity", 1)
 
 		d3.select("#details")
-		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using an arsenal of " + d.guns)
+		.text(d.perpetrator + ", " + d.gender + ", injured and killed " + d.kills + " people using an arsenal of " + d.guns + " gun(s)")
 	})
 
 	d3.selectAll('.event').on("mouseleave", function(d){
