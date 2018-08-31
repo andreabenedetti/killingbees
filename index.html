@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>He was always nice — An Exploration On Mass Shootings</title>
+  <title>He was always nice — An Overview On Mass Shootings</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +39,7 @@
         <div class="row">
           <div class="offset-sm-1 offset-md-2 col-sm-11 col-md-6">
             <h1>He was <br />always nice</h1>
-            <h3>An Exploration On Mass Shootings</h3>
+            <h3>An Overview On Mass Shootings</h3>
           </div>
         </div>
       </section>
@@ -48,8 +48,11 @@
         <div class="container">
           <div class="row">
             <div class="offset-lg-2 col-lg-8">
-              <span id="people" class="citation">The FBI defines a mass shooting as an event of <b>gun violence where more than four people</b> are involved as victims.</p>
-              <span class="citation">From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>363 events</b> occurred.</p>
+              <span id="people" class="citation">There is not yet a standard definition of the term <i>mass shooting</i>. 
+                The definition of mass shooting used for the Stanford database is <b>three or more shooting victims</b> (dead or injured), not including the shooter. The shooting must not be identifiably gang, drug, or organized crime related. 
+              </p>
+              <span class="citation">Only episodes with more than four victims were considered.
+              From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
             </div>
           </div>
         </div>
@@ -63,7 +66,8 @@
               <h3>The most infamous events</h3>
               <p>While 363 events occurred from the year the FBI started recording these events, a few of them marked the collective conscience of the country, becoming some of the most recognized tragedies of the last decades.</p>
               <p>Seventeen of them were either the most brutal, the most shocking or the most unexpected events, and almost anyone can recognize at least one of them from this list. The <i>Las Vegas Strip Shooting</i> was the deadliest shooting, while the <i>Orlando Pulse Nightclub shooting</i> was the most brutal attack against the LGBTQ+ community in recent history.</p>
-              <p class="tip">Hover or touch the glyphs to get additional and comprehensive information.</p>
+              <p style="opacity:0.5"><i>Each figure describes one of the 17 most famous event. The size of the circle represents the amount of victims, the color the perpetrator’s mental state and the  black lines the number of weapons used.</i></p>
+              <p class="tip">Hover or touch the figures to get additional and comprehensive information.</p>
             </div>
           </div>
         </div>
@@ -108,7 +112,9 @@
           <div class="offset-lg-2 col-lg-8">
             <h2>Where</h2>
             <h3>A map to understand where incidents occur</h3>
-            <p>But what happens when we see where these events took place? Disheartingly, mass shootings happen all over the US. They usually take place in populous areas of the Country, however each event, from the ones that took place in large cities like San Francisco to the ones that took place in the most secluded places, hides a complex story of unhappiness, restlessness of regular people that were, apparently, living a normal life.</p>
+            <p>But what happens when we see where these events took place? Mass shootings happen all over the US. They usually take place in populous areas of the Country, however each event, from the ones that took place in large cities like San Francisco to the ones that took place in the most secluded places like Nickel Mines, Lancaster, Pennsylvania hides a complex story of unhappiness, restlessness of regular people that were, apparently, living a normal life.</p>
+            <p style="opacity:0.5"><i>In the interactive map each dot represents an event and the saturation indicates how much the event is close in time to the present.
+            </i></p>
             <p class="tip">Zoom and drag the map, and hover on the circles to get additional information.</p>
           </div>
         </div>
@@ -125,9 +131,9 @@
         <div class="row">
           <div class="offset-lg-2 col-lg-8">
             <h2>How</h2>
-            <h3>the tools used to kill, and where</h3>
-            <p>Treemap delle armi utilizzate per diverse tipologie di luoghi</p>
-            <p>Dati: armi, luoghi</p>
+            <h3>the tools used to kill</h3>
+            <p>From 1966 an amount of 299 various weapons including handguns, rifles and shotguns were used to kill. The most abundant arsenal is related to the Las Vegas Strip mass shooting when Stephen Craig Paddock opened fire from the 32nd of an hotel with 23 rifles.</p>
+            <p style="opacity:0.5"><i>In the visualization, a set of 151 events is represented. Weapons are divided in three stacks: handguns, shotguns and rifles.</i></p>
           </div>
         </div>
       </section>
@@ -154,8 +160,7 @@
                 <h2>Who</h2>
                 <h3>A comprehensive view on each killer and event</h3>
                 <p>When looked all together, mass shootings and their perpetrators share similar patterns in location, gender and race. These events are perpetrated by people of all races, however, they are predominantly men.</p>
-                <p>In the visualization, single events (always represented by single circles) can be divided into different categories on the vertical axis; and they can be distributed by various numerical values on the horizontal axis.</p>
-                <p>While most of the events take place in closed locations, </p>
+                <p style="opacity:0.5"><i>In the visualization, single events (always represented by single circles) can be divided into different categories on the vertical axis; and they can be distributed by various numerical values on the horizontal axis.</i></p>
                 <p class="tip">Click on the buttons to redistribute circles on the graph. Hover or touch the circles to get additional information.</p>
               </div>
             </div>
@@ -211,8 +216,8 @@
       <script src="js/celeb.js"></script>
       <script>
         $(window).on("load", function() {
-      $(".loader").fadeOut("slow");
-});
+          $(".loader").fadeOut("slow");
+        });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
