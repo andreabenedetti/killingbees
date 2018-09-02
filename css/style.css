@@ -1,5 +1,5 @@
 html {
-  background: #0A0101;
+  background: #F9EFE3;
 }
 
 body {
@@ -118,7 +118,7 @@ section {
 }
 
 .citation {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 p {
@@ -401,14 +401,7 @@ svg {
 
 .tick text {
   font-size: 0.7rem;
-  font-family: -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen-Sans,
-  Ubuntu,
-  Cantarell,
-  "Helvetica Neue",
+  font-family: "Helvetica",
   sans-serif;
 }
 
@@ -419,6 +412,11 @@ svg {
 
 .xAxis .tick line {
   stroke-dasharray: 2,2;
+}
+
+.timelineAxis .tick line {
+  stroke-dasharray: 2,2;
+  stroke: #777;
 }
 
 .tick text {
@@ -445,15 +443,7 @@ button {
   margin-right: 0.5rem;
   transition: all 0.3s ease;
   outline: none;
-  font-family: -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen-Sans,
-  Ubuntu,
-  Cantarell,
-  "Helvetica Neue",
-  sans-serif;
+  font-family: "Helvetica", sans-serif;
   font-size: 0.9rem;
 }
 
@@ -468,6 +458,11 @@ button:focus {
 
 .circ:hover {
   cursor: pointer;
+}
+
+.button-label {
+  font-family: "Helvetica", sans-serif;
+  font-size: 0.9rem;
 }
 
 .b_sel {
@@ -549,10 +544,13 @@ button:focus {
 }
 
 #footer {
-  background: #0A0101;
-  margin-top: 1rem;
-  color: snow;
-  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+#footer .col-4 {
+  border-radius: 2px;
+  color: #0A0101;
+  padding: 1rem;
 }
 
 /* Mappa */

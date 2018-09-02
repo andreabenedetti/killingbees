@@ -208,7 +208,7 @@ padding = 100;
     // Draw UI buttons
 
     let yButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    yButtons.append('p').text('divide by')
+    yButtons.append('p').text('divide by').classed("button-label", true)
     yButtons.append('button').text('mental health').attr('value', 'health').classed('d_sel', true)
     yButtons.append('button').text('location type').attr('value', 'location').classed('d_sel', true)
     yButtons.append('button').text('gender').attr('value', 'gender').classed('d_sel', true)
@@ -217,7 +217,7 @@ padding = 100;
     yButtons.append('button').text('X').attr('value', 'race').classed('d_del', true).classed("disabled", true)
 
     let xButtons = d3.select('#killingbees-ui').append('div').classed('buttons', true);
-    xButtons.append('p').text('place by ')
+    xButtons.append('p').text('place by').classed("button-label", true)
     xButtons.append('button').text('perpetrator age').attr('value', 'age').classed('b_sel', true)
     xButtons.append('button').text('total victims').attr('value', 'kills').classed('b_sel', true)
     xButtons.append('button').text("date").attr('value', 'value').classed('b_sel', true).style('background','#0A0101').style("color", "white")

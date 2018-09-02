@@ -28,7 +28,7 @@
     <a href="#highlight"><div class="nav-link">What</div></a>
     <a href="#location"><div class="nav-link">Where</div></a>
     <a href="#shootings"><div class="nav-link">How</div></a>
-    <a href="#shootings"><div class="nav-link">When</div></a>
+    <a href="#legislations"><div class="nav-link">When</div></a>
     <a href="#killingbees"><div class="nav-link">Who</div></a>
   </nav>
 
@@ -49,7 +49,7 @@
           <div class="row">
             <div class="offset-lg-2 col-lg-8">
               <span id="people" class="citation">There is not yet a standard definition of the term <i>mass shooting</i>. 
-                The definition of mass shooting used for the Stanford database is <b>three or more shooting victims</b> (dead or injured), not including the shooter. The shooting must not be identifiably gang, drug, or organized crime related. 
+                The definition of mass shooting used by Stanford is <b>three or more shooting victims</b> (dead or injured), not including the shooter. The shooting must not be identifiably gang, drug, or organized crime related. 
               </p>
               <span class="citation">Only episodes with more than four victims were considered.
               From 1966, the year of the first recognized mass shooting, to 2018, a total of <b>358 events</b> occurred.</p>
@@ -126,7 +126,7 @@
       </div>
     </section>
 
-    <section id="shootings">
+      <section id="shootings">
       <div class="container">
         <div class="row">
           <div class="offset-lg-2 col-lg-8">
@@ -134,22 +134,26 @@
             <h3>the tools used to kill</h3>
             <p>From 1966 an amount of 299 various weapons including handguns, rifles and shotguns were used to kill. The most abundant arsenal is related to the Las Vegas Strip mass shooting when Stephen Craig Paddock opened fire from the 32nd of an hotel with 23 rifles.</p>
             <p style="opacity:0.5"><i>In the visualization, a set of 151 events is represented. Weapons are divided in three stacks: handguns, shotguns and rifles.</i></p>
+            <p class="tip">Click on the buttons to redistribute circles on the graph. Hover or touch the circles to get additional information.</p>
           </div>
         </div>
       </section>
 
-      <section id="victims">
+      <section id="legislations">
         <div class="container">
           <div class="row">
             <div class="offset-lg-2 col-lg-8">
               <h2>When</h2>
               <h3>Legislations and mass murders</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Scatterplot (da decidere i valori)</p>
-              <p><i>Timeline?</i></p>
-              <p>Dati: popolazione dei luoghi, vittime, poliziotti uccisi</p>
+              <p style="opacity:0.5"><i>In the visualization, a set of 151 events is represented. Weapons are divided in three stacks: handguns, shotguns and rifles.</i></p>
+              <p class="tip">Click on the buttons to redistribute circles on the graph. Hover or touch the circles to get additional information.</p>
             </div>
           </div>
+        </div>
+        <div class="container-fluid">
+          <div id="legislations-timeline"></div>
+        </div>
         </section>
 
         <section id="killingbees" class="container-fluid">
@@ -178,10 +182,9 @@
           </div>
         </section>
 
-        <div id="footer" class="container-fluid">
-          <div class="container">
+        <div id="footer" class="container">
             <div class="row">
-              <div class="col-8">
+              <div class="col-4 offset-2">
                 <h5>sources</h5>
                 <ul>
                   <li><a href="/" target="_blank">Kaggle</a></li>
@@ -198,7 +201,6 @@
                 </ul>
               </div>
             </div>
-          </div>
         </div>
       </content>
       <!-- Bootstrap core JavaScript -->
@@ -214,6 +216,7 @@
       <script src="js/killingbees.js"></script>
       <script src="js/mapguns.js"></script>
       <script src="js/celeb.js"></script>
+      <script src="js/legs.js"></script>
       <script>
         $(window).on("load", function() {
           $(".loader").fadeOut("slow");
