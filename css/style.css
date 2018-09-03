@@ -159,8 +159,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: 700;
   letter-spacing: -1px;
-  /*text-transform: lowercase;*/
-  word-break: break-all;
 }
 
 h1 {
@@ -351,7 +349,6 @@ hr {
 
 .location {
   font-style: italic;
-  font-size: 0.8rem;
 }
 
 .event .year {
@@ -599,6 +596,24 @@ button:focus {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 0.8rem;
   opacity: 0.5;
+}
+
+.bills-tooltip {
+  padding: 1rem;
+  border: 1px solid #010A0A;
+  border-radius: 4px;
+}
+
+.bills-tooltip p {
+  font-size: 0.98rem;
+}
+
+.bills {
+  transition: all 0.3s;
+}
+
+.bills:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width : 1224px) {
