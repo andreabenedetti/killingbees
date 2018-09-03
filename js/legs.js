@@ -53,6 +53,7 @@ d3.tsv("data/leg.tsv", function(error, data) {
 	.attr("fill", d => { return locality(d.where)})
 	.style("opacity", 1)
 	.style("stroke", "black")
+	.style("stroke-width", 1)
 	.classed("bills", true)
 
 	d3.selectAll('.bills').on("mouseenter", function(d){
