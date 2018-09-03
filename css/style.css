@@ -380,6 +380,14 @@ hr {
     pointer-events: none;
   }
 
+.sangue {
+  padding: 0 100px 0 100px;
+  width: 100%;
+}
+
+.sangue img {
+}
+
 svg {
   margin: auto;
   margin-bottom: 2rem;

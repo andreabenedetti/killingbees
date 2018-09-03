@@ -27,6 +27,8 @@ let bills = d3.select('#legislations-timeline').append('svg')
 .attr("width", billsWidth)
 .attr("height", billsHeight);
 
+let g = bills.append("g");
+
 let billsTooltip = d3.select('.bills-tooltip');
 
 d3.tsv("data/leg.tsv", function(error, data) {
@@ -38,7 +40,7 @@ d3.tsv("data/leg.tsv", function(error, data) {
         return d.year;
     }));
 
-    bills.append("g")
+	bills.append("g")
 	.call(timelineAxis)
 	.classed("timelineAxis", true);
 
