@@ -19,7 +19,7 @@ let locality = d3.scaleOrdinal()
 .domain(["federal","local","none"])
 .range(["#010A0A","#999999","#FFFFFF"])
 
-let timelineAxis = d3.axisBottom(timeline).ticks(20)
+let timelineAxis = d3.axisBottom(timeline).ticks(10)
 .tickFormat(d3.format(",d"))
 .tickSize(billsHeight - 20);
 

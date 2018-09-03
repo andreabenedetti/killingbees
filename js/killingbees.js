@@ -58,7 +58,7 @@ padding = 100;
     let killAxis = d3.axisBottom(x2).tickFormat(d3.format(".0s")).tickSize(height - 20);
     let ageAxis = d3.axisBottom(x1)
     .tickSize(height - 20);
-    let dateAxis = d3.axisBottom(x).ticks(20)
+    let dateAxis = d3.axisBottom(x).ticks(10)
     .tickFormat(d3.timeFormat("%Y"))
     .tickSize(height - 20);
 
