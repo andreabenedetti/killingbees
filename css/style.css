@@ -381,11 +381,13 @@ hr {
   }
 
 .sangue {
-  padding: 0 100px 0 100px;
-  width: 100%;
+  margin: 0 100px 0 100px;
+  height: 100px;
 }
 
 .sangue img {
+  width:100%;
+  height:100%;
 }
 
 svg {
