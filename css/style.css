@@ -45,7 +45,7 @@ hr {
 }
 
 #nav .open {
-  color: #F9EFE3;
+  color: snow;
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -60,7 +60,7 @@ hr {
 }
 
 #nav a {
-  color: #F9EFE3;
+  color: snow;
   transition: color 0.2s ease;
 }
 

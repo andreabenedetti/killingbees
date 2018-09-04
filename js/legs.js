@@ -62,6 +62,10 @@ d3.tsv("data/leg.tsv", function(error, data) {
 		d3.selectAll(".bills").attr("fill", "none")
 		d3.select(this).attr("fill", d => { return locality(d.where)})
 
+    $(".bills-tooltip").animate({
+                height: 200
+              }, 600, "easeOutCubic" );
+
 		billsTooltip.append("p")
 		.classed("location", true)
 		.text(d.year + ", " + d.where + " " + d.type)
@@ -74,6 +78,10 @@ d3.tsv("data/leg.tsv", function(error, data) {
 	d3.selectAll('.bills').on("mouseleave", function(d){
 
 		d3.selectAll(".bills").attr("fill", d => { return locality(d.where)})
+
+    $(".bills-tooltip").animate({
+                height: 0
+              }, 600, "easeOutCubic" );
 
 		billsTooltip.selectAll("p").remove()
 	});
