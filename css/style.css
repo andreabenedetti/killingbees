@@ -602,13 +602,6 @@ button:focus {
   opacity: 0.5;
 }
 
-.bills-tooltip {
-  padding: 1rem;
-  border: 1px solid #010A0A;
-  background: snow;
-  border-radius: 3px;
-}
-
 .bills-tooltip p {
   font-size: 0.98rem;
 }
@@ -640,6 +633,10 @@ button:focus {
 @media only screen and (max-width : 768px) {
   #nav {
     display: none;
+  }
+
+  .citation {
+    font-size: 1.3rem;
   }
 }
 

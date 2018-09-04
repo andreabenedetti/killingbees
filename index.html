@@ -19,8 +19,8 @@
 <body>
 
   <div class="loader">
-    <div class="dot"></div>
-    <div class="dot-a"></div>
+    <!-- <div class="dot"></div>
+    <div class="dot-a"></div> -->
   </div>
 
   <nav id="nav">
@@ -65,7 +65,7 @@
                 <h3>The most infamous events</h3>
                 <p>While 363 events occurred from the year the FBI started recording these events, a few of them marked the collective conscience of the country, becoming some of the most recognized tragedies of the last decades.</p>
                 <p>Seventeen of them were either the most brutal, the most shocking or the most unexpected events, and almost anyone can recognize at least one of them from this list. The <i>Las Vegas Strip Shooting</i> was the deadliest shooting, while the <i>Orlando Pulse Nightclub shooting</i> was the most brutal attack against the LGBTQ+ community in recent history.</p>
-                <p style="opacity:0.5"><i>Each figure describes one of the 16 most famous event. The size of the circle represents the amount of victims, the color the perpetrator’s mental state and the  black lines the number of weapons used.</i></p>
+                <p style="color: rgba(0,0,0,.5)"><i>Each figure describes one of the 16 most famous event. The size of the circle represents the amount of victims, the color the perpetrator’s mental state and the  black lines the number of weapons used.</i></p>
                 <p class="tip">Hover or touch the figures to get additional and comprehensive information.</p>
               </div>
             </div>
@@ -111,7 +111,7 @@
             <div class="offset-lg-2 col-lg-8">
               <h3>Mapping, to understand where incidents occur</h3>
               <p>What happens when we see where these events took place? Mass shootings happen all over the US. They usually take place in populous areas of the Country, however each event, from the ones that took place in large cities like San Francisco to the ones that took place in the most secluded places, like the one at the West Nickel Mines School in Lancaster, Pennsylvania, hides a complex story of unhappiness, restlessness of regular people that were, apparently, living a normal life.</p>
-              <p style="opacity:0.5"><i>In the interactive map each dot represents an event and the saturation indicates how much the event is close in time to the present.
+              <p style="color: rgba(0,0,0,.5)"><i>In the interactive map each dot represents an event and the saturation indicates how much the event is close in time to the present.
               </i></p>
               <p class="tip">Zoom and drag the map, and hover on the circles to get additional information.</p>
             </div>
@@ -130,9 +130,8 @@
             <div class="offset-lg-2 col-lg-8">
               <h3>The tools used to kill</h3>
               <p>From 1966 an amount of 299 various weapons including handguns, rifles and shotguns were used to kill. The most abundant arsenal is related to the Las Vegas Strip mass shooting when Stephen Craig Paddock opened fire from the 32nd of an hotel with 23 rifles.</p>
-              <p>The arsenal used across all mass murders is varied both in size and type of guns, but all of these informations highlight the ongoing and complex discussion about gun violence in the US.</p>
-              <p style="opacity:0.5"><i>Since not all recorded events are complete in their information, we show a set of 151 events.</i></p>
-              <p class="tip">Click on the buttons to redistribute circles on the graph. Hover or touch the circles to get additional information.</p>
+              <p>The arsenal used across all mass murders is varied both in size and type of guns, but all of these informations highlight the ongoing and complex discussion about gun control in the US.</p>
+              <p style="color: rgba(0,0,0,.5)"><i>Since not all recorded events are complete in their information, we show a set of 151 events.</i></p>
             </div>
           </div>
           <div class="row mucchi">
@@ -158,7 +157,7 @@
               <div class="offset-lg-2 col-lg-8">
                 <h3>Legislations and mass murders, an ongoing struggle</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p style="opacity:0.5"><i>All bills, acts and events are placed in a chronological order and colored by their area of influence, whether it is in a single state or if it is a federal law. Down below, a comparison with all the victims, injured and killed, from 1966 to 2018.</i></p>
+                <p style="color: rgba(0,0,0,.5)"><i>All bills, acts and events are placed in a chronological order and colored by their area of influence, whether it is in a single state or if it is a federal law. Down below, a comparison with all the victims, <span style="background: #d53124; color: snow; padding: 0 0.2rem 0 0.2rem">injured</span> and <span style="background: #9e1915; color: snow; padding: 0 0.2rem 0 0.2rem">killed</span>, from 1966 to 2018.</i></p>
                 <p class="tip">Hover the laws, represented by each square, to get additional information.</p>
               </div>
             </div>
@@ -188,7 +187,7 @@
                 <div id="tooltip"></div>
                 <h3>A comprehensive view on each killer and event</h3>
                 <p>When looked all together, mass shootings and their perpetrators share similar patterns in location, gender and race. These events are perpetrated by people of all races, however, they are predominantly men.</p>
-                <p style="opacity:0.5"><i>In the visualization, single events (always represented by single circles) can be divided into different categories on the vertical axis; and they can be distributed by various numerical values on the horizontal axis.</i></p>
+                <p style="color: rgba(0,0,0,.5)"><i>In the visualization, single events (always represented by single circles) can be divided into different categories on the vertical axis; and they can be distributed by various numerical values on the horizontal axis.</i></p>
                 <p class="tip">Click on the buttons to redistribute circles on the graph. Hover or touch the circles to get additional information.</p>
               </div>
             </div>
@@ -212,10 +211,15 @@
               <hr>
               <h5>Credits</h5>
               <p>This is a website designed and researched by <a href="http://andrea-benedetti.it" target="_blank">Andrea Benedetti</a>, <a href="http://andrea-benedetti.it" target="_blank">Giacomo Flaim</a> and <a href="http://bea92.github.io/website/" target="_blank">Beatrice Gobbo</a>.</p>
-              <p>The data used is based on the study from <a href="/" target="_blank">Stanford University</a> about mass murders, it's compiled and updated by a community effort on <a href="/" target="_blank">Kaggle</a>, and finally integrated with data from <a href="/" target="_blank">Wikipedia</a> scraped by hand.</p>
+              <p>The data used is based on the study from Stanford University about mass murders, it's compiled and updated by a community effort on Kaggle, and finally integrated with data from Wikipedia scraped by hand.</p>
+              <p>Data is updated until the end of 2017. Other incidents have happened but they yet need to appear in the source dataset.</p>
               <p>&nbsp</p>
               <h5>References</h5>
-              <a href="/" target="_blank">Stanford University</a>
+                <p><a href="https://library.stanford.edu/projects/mass-shootings-america" target="_blank">Mass Shootings in America, Stanford University</a></p>
+               <p><a href="https://www.thoughtco.com/us-gun-control-timeline-3963620" target="_blank">See a Timeline of Gun Control in the United States,  Thought.co</a></p>
+               <p><a href="https://www.apnews.com/95e0294725cc4bc1909279263129f4bb" target="_blank">Timeline of pivotal moments in US gun control history, AP News </a></p>
+               <p><a href="https://www.sbs.com.au/news/thefeed/explainer/americas-gun-laws-timeline-and-whats-changed" target="_blank">America's gun laws: a timeline, and what's changed, SBS</a></p>
+               <p><a href="https://www.seventeen.com/life/a19643402/second-amendment-gun-control-history/" target="_blank">A Timeline of the Second Amendment and Gun Control in the U.S., Seventeen</a></p>
             </div>
           </div>
         </div>
