@@ -15,18 +15,6 @@ section {
   padding-bottom: 5rem;
 }
 
-#footer a, #footer a:visited {
-  color: #EA1515;
-  transition: all 0.3s ease;
-}
-
-#footer a:hover {
-  color: snow;
-  padding: 0 0.5rem 0 1rem;
-  background: #EA1515;
-  text-decoration: none;
-}
-
 .container-fluid {
   padding: 0;
 }
@@ -96,7 +84,7 @@ section {
   border-bottom: 1px solid #0A0101;
   display: flex;
   align-items: center;
-  background-image: url("../images/artwork.png");
+  /*background-image: url("../images/artwork.png");*/
   background-size: 1000px;
   background-position: bottom right;
   background-repeat: no-repeat;
@@ -173,18 +161,6 @@ h2 {
 h6 {
   letter-spacing: 0;
 }
-
-/*h3:before {
-  content:"(";
-  margin-right: .5rem;
-  color: #C20114;
-}
-
-h3:after {
-  content:")";
-  margin-left: .5rem;
-  color: #C20114
-}*/
 
 hr {
   margin: 2rem 0;
@@ -373,12 +349,12 @@ hr {
 }
 
 #detCont {
-    width: 90%;
-    position: fixed;
-    bottom: 0;
-    z-index: 9999;
-    pointer-events: none;
-  }
+  width: 90%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
 
 .sangue {
   margin: 0 100px 0 100px;
@@ -611,7 +587,8 @@ button:focus {
 .bills-tooltip {
   padding: 1rem;
   border: 1px solid #010A0A;
-  border-radius: 4px;
+  background: snow;
+  border-radius: 3px;
 }
 
 .bills-tooltip p {
@@ -626,11 +603,26 @@ button:focus {
   cursor: pointer;
 }
 
-@media only screen and (max-width : 1224px) {
-body {
-  font-size: 0.9rem;
+.mucchi {
+  margin-top: 2rem;
+  border-bottom: 1px solid #010A0A;
 }
 
+.mucchi > div {
+  text-align: center;
+}
+
+@media only screen and (max-width : 1224px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+}
+
+@media only screen and (max-width : 768px) {
+  #nav {
+    display: none;
+  }
 }
 
 /* -----
