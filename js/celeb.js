@@ -66,8 +66,8 @@ d3.tsv("data/sample.tsv", function(error, data) {
 	.text(function(d) {
 		if(d.gender === "Male") {
 			return "M"
-		} else if(d.gender === "Male/Female") {
-			return "M & F"
+		// } else if(d.gender === "Male/Female") {
+		// 	return "M & F"
 		} else {
 			return "F"
 		}
