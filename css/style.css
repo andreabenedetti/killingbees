@@ -430,6 +430,11 @@ svg {
   margin-right: 0.5rem;
 }
 
+.bloodAxis .tick line, .xAxis .tick line {
+  stroke-width: 1;
+  stroke: rgba(0,0,0,.3);
+}
+
 button {
   background: #F9EFE3;
   padding: 0.2rem 0.5rem;
