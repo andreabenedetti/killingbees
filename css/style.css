@@ -15,6 +15,19 @@ section {
   padding-bottom: 5rem;
 }
 
+a, a:visited, a:focus {
+  color: #EA1515;
+}
+
+a:hover {
+  color: #B30000;
+  text-decoration: none;
+}
+
+hr {
+  border-top: 1px solid #0A0101;
+}
+
 .container-fluid {
   padding: 0;
 }
@@ -110,8 +123,8 @@ section {
 }
 
 p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 ul {
@@ -527,7 +540,7 @@ button:focus {
 }
 
 #footer {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 #footer .col-4 {
