@@ -705,13 +705,11 @@ Methodology
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
 }
 
 #alert > * {
   width: 50vw;
   font-size: 1.6rem;
-  text-align: center;
 }
 
 @media only screen and (max-width : 1224px) {
@@ -728,9 +726,5 @@ Methodology
 
   .citation {
     font-size: 1.3rem;
-  }
-
-  #alert {
-    display: block;
   }
 }
