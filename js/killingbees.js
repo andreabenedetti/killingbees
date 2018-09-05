@@ -130,7 +130,9 @@ padding = 100;
 
       svg.selectAll('.circ')
       .data(data)
-      .enter().append('circle').classed('circ', true)
+      .enter()
+      .filter(function(d) { return d.kills > 3 })
+      .append('circle').classed('circ', true)
       .attr('r', function(d) { return size(d.kills) })
       .attr('cx', function(d){ return x(d.value); })
       .attr('cy', function(){ return height/2; })

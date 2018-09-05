@@ -432,7 +432,7 @@ svg {
 
 .bloodAxis .tick line, .xAxis .tick line {
   stroke-width: 1;
-  stroke: rgba(0,0,0,.3);
+  stroke: #777;
 }
 
 button {
@@ -608,6 +608,15 @@ button:focus {
 
 .bills-tooltip p {
   font-size: 0.98rem;
+}
+
+.code {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+.active {
+  cursor: pointer;
 }
 
 .bills {

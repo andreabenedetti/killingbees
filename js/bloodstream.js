@@ -52,19 +52,19 @@ d3.csv('data/bloodstream.csv', function(error, data) {
           })])
           .range([5, billsHeight]);
 
-          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - 150).tickPadding(20);
+          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - 150).tickPadding(5);
 
-          console.log(y.domain())
+          // console.log(y.domain())
 
           //set colors
           let z = d3.scaleOrdinal()
-          .range(["#d53124", "#9e1915"]);
+          .range(["#EA1515", "#AA0F0F"]);
 
           //convert bounding lines into areas
           let area = d3.area()
           .x(function(d) {
               // console.info('in area function', d);
-              console.log(d.data.year);
+              // console.log(d.data.year);
               return timeline(d.data.year);
             })
           .y0(function(d) {
