@@ -599,7 +599,11 @@ button:focus {
 .tip {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 0.8rem;
-  opacity: 0.5;
+  color: rgba(0,0,0,.5);
+}
+
+.description {
+  color: rgba(0,0,0,.5);
 }
 
 .bills-tooltip p {

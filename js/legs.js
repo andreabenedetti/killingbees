@@ -20,7 +20,7 @@ let locality = d3.scaleOrdinal()
 .range(["#010A0A","#999999","#FFFFFF"])
 
 let timelineAxis = d3.axisBottom(timeline).ticks(10)
-.tickFormat(d3.format(",d"))
+.tickFormat(d3.timeFormat("%Y"))
 .tickSize(billsHeight - 20);
 
 let bills = d3.select('#legislations-timeline').append('svg')
@@ -35,8 +35,7 @@ d3.tsv("data/leg.tsv", function(error, data) {
 	if (error) throw error;
 
 	timeline.domain(d3.extent(data, function(d) { 
-        // d.year = parseTimeline(d.year);
-        d.year = +d.year;
+        d.year = parseTimeline(d.year);
         return d.year;
     }));
 
@@ -68,7 +67,7 @@ d3.tsv("data/leg.tsv", function(error, data) {
 
 		billsTooltip.append("p")
 		.classed("location", true)
-		.text(d.year + ", " + d.where + " " + d.type)
+		.text(d.where + " " + d.type)
 
 		billsTooltip.append("p")
 		.classed("summary", true)
