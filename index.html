@@ -77,13 +77,11 @@
                 <p class="ill">mentally ill</p>
                 <p class="sane">sane</p>
                 <p class="unclear">unclear</p>
-                <p class="unknown">not available</p>
               </div>
               <div id="legend" class="col-3">
                 <h6>Gender</h6>
                 <p class="male">male</p>
                 <p class="female">female</p>
-                <p class="both">both</p>
               </div>
               <div id="legend" class="col-4">
                 <h6>State of the perpetrator</h6>
@@ -230,6 +228,7 @@ The list of mass shootings keeps getting longer. The most famous cases are the o
     </content>
 
     <a href="#intro"><div id="top">Back to top</div></a>
+    <div id="alert" class="d-sm-none"><h4>For the best experience of this website, a tablet or computer is best suited.</h4></div>
     <!-- Bootstrap core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
@@ -317,7 +316,7 @@ The list of mass shootings keeps getting longer. The most famous cases are the o
 
       $(document).scroll(function () {
         var y = $(this).scrollTop();
-        if (y >= 300) {
+        if (y > 300) {
           $('#top').fadeIn();
         } else {
           $('#top').fadeOut();

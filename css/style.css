@@ -648,23 +648,6 @@ button:focus {
   text-align: center;
 }
 
-@media only screen and (max-width : 1224px) {
-  body {
-    font-size: 0.9rem;
-  }
-
-}
-
-@media only screen and (max-width : 768px) {
-  #nav {
-    display: none;
-  }
-
-  .citation {
-    font-size: 1.3rem;
-  }
-}
-
 /* -----
 Methodology
 ----- */
@@ -710,4 +693,38 @@ Methodology
   top: 49%;
   left: 49%;
   animation: 1s pulse ease-out infinite;
+}
+
+#alert {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #F9EFE3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#alert > * {
+  width: 50vw;
+  font-size: 1.6rem;
+}
+
+@media only screen and (max-width : 1224px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+}
+
+@media only screen and (max-width : 768px) {
+  #nav {
+    display: none;
+  }
+
+  .citation {
+    font-size: 1.3rem;
+  }
 }
