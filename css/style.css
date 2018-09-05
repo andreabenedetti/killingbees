@@ -324,6 +324,49 @@ hr {
   top: 0.05rem;
 }
 
+.act::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  background: #000000;
+}
+
+.bill::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  background: #999999;
+  border:1px solid black;
+}
+
+.general::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  background: #ffffff;
+  border:1px solid black;
+}
+
+.weapon::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  align-items: top;
+  vertical-align: center;
+  border-top:3px solid black;
+}
+
+
+
+
 .event {
   flex-basis: 12rem;
   padding: 0.5rem;
