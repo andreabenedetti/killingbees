@@ -64,7 +64,7 @@ d3.csv('data/bloodstream.csv', function(error, data) {
           let area = d3.area()
           .x(function(d) {
               // console.info('in area function', d);
-              console.log(d.year);
+              console.log(d.data.year);
               return timeline(d.data.year);
             })
           .y0(function(d) {
