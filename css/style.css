@@ -75,6 +75,18 @@ hr {
   font-weight: 700;
 }
 
+#top {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  color: #010A0A;
+  font-family: "Helvetica", sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+}
+
 .disabled {
   display: none;
 }
