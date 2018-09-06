@@ -110,7 +110,7 @@ let interpolators = [
     .attr("y", 31);
 
     colorKey.append("text")
-    .text("2018")
+    .text("2017")
     .classed("label", true)
     .attr("x", 173)
     .attr("y", 31);
@@ -118,6 +118,7 @@ let interpolators = [
     map.selectAll("circle")
     .data(data)
     .enter()
+    .filter(function(d) { return d.year < 2018 })
     .append("circle")
     .attr("cx", function(d) {
      return projection([d.lon, d.lat])[0];

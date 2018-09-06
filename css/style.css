@@ -219,6 +219,11 @@ hr {
   margin-right: 0.5rem;
 }
 
+#killingbees #legend {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
 .label {
   font-family: sans-serif;
   font-weight: bold;
