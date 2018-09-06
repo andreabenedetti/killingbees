@@ -365,8 +365,6 @@ hr {
 }
 
 
-
-
 .event {
   flex-basis: 12rem;
   padding: 0.5rem;
@@ -685,12 +683,35 @@ button:focus {
 
 .mucchi {
   margin-top: 2rem;
-  border-bottom: 1px solid #010A0A;
+  /*border-bottom: 1px solid #010A0A;*/
+}
+
+.mucchi img {
+  margin-top: 1rem;
 }
 
 .mucchi > div {
   text-align: center;
 }
+
+.mucchi p {
+  margin-bottom: 0;
+  font-family: "Helvetica", sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  font-size: 1rem;
+  letter-spacing: -1px;
+}
+
+.KPI {
+  font-size: 3rem !important;
+}
+
+.total {
+  opacity: 0.4;
+}
+
+
 
 /* -----
 Methodology
