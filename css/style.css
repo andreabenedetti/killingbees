@@ -372,6 +372,7 @@ hr {
   padding: 0.5rem;
   padding-bottom: 2rem;
   transition: opacity 0.3s ease;
+  user-select: none;
 }
 
 .event:hover {
