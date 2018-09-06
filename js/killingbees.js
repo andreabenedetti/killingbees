@@ -62,10 +62,10 @@ padding = window.innerWidth * 0.08;
     .tickFormat(d3.timeFormat("%Y"))
     .tickSize(height - 20);
 
-    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - 200).tickPadding(10);
-    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - 200).tickPadding(10);
-    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - 200).tickPadding(10);
-    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - 200).tickPadding(10);
+    let locationAxis = d3.axisLeft(y2).ticks().tickSize(width - window.innerWidth * 0.15).tickPadding(10);
+    let healthAxis = d3.axisLeft(y3).ticks().tickSize(width - window.innerWidth * 0.15).tickPadding(10);
+    let genderAxis = d3.axisLeft(y4).ticks().tickSize(width - window.innerWidth * 0.15).tickPadding(10);
+    let raceAxis = d3.axisLeft(y5).ticks().tickSize(width - window.innerWidth * 0.15).tickPadding(10);
 
     // starting visualization with:
     let data_set = "health";
@@ -313,7 +313,7 @@ padding = window.innerWidth * 0.08;
             return "Female";
             break;
             case "Male/Female":
-            return "Male and female";
+            return "Both";
             break;
             case "Unknown":
             return "Not Available";
