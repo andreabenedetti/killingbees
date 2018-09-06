@@ -52,7 +52,7 @@ d3.csv('data/bloodstream.csv', function(error, data) {
           })])
           .range([5, billsHeight]);
 
-          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - 150).tickPadding(5);
+          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - 180).tickPadding(5);
 
           // console.log(y.domain())
 
@@ -92,7 +92,7 @@ d3.csv('data/bloodstream.csv', function(error, data) {
           //append the x axis
           stream.append("g")
           .call(victimAxis)
-          .attr("transform", "translate(" + (billsWidth - billsPadding + 15) + ",0)")
+          .attr("transform", "translate(" + (billsWidth - billsPadding ) + ",0)")
           .classed("bloodAxis", true);
 
         });
