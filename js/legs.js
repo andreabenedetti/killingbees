@@ -1,6 +1,6 @@
 let billsWidth = d3.selectAll("#legislations-timeline").node().getBoundingClientRect().width,
-billsHeight = 250,
-billsPadding = 100;
+billsHeight = 50,
+billsPadding = window.innerWidth * 0.08;
 
 let parseTimeline = d3.timeParse("%Y");
 
@@ -12,8 +12,8 @@ let typology = d3.scalePoint()
 .range([30, billsHeight - 0])
 
 let order = d3.scaleLinear()
-.domain([1,33])
-.range([billsHeight - 30, 15])
+.domain([1,3])
+.range([billsHeight - 30, 5])
 
 let locality = d3.scaleOrdinal()
 .domain(["Act","Bill","Event"])
@@ -53,12 +53,11 @@ d3.tsv("data/legislations.tsv", function(error, data) {
 	.data(data)
 	.enter()
 	.append("rect")
-	.attr("x", d => { return timeline(+d.year) - 3 })
+	.attr("x", d => { return timeline(+d.year) - ( (billsWidth - billsPadding) / 54 ) / 2})
 	.attr("y", d => { return order(d.id)})
-	.attr("width", 7)
+	.attr("width", (billsWidth - billsPadding) / 54)
 	.attr("height", 7)
 	.attr("fill", d => { return locality(d.type)})
-	.style("opacity", 1)
 	.style("stroke", "black")
 	.style("stroke-width", 1)
 	.classed("bills", true)

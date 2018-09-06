@@ -12,6 +12,10 @@ let bloodstream = d3.select("#bloodstream").append("svg")
 
 let stream = bloodstream.append("g");
 
+let bloodtimeAxis = d3.axisBottom(timeline).ticks(10)
+.tickFormat(d3.timeFormat("%Y"))
+.tickSize(130);
+
 d3.csv('data/bloodstream.csv', function(error, data) {
   if (error) throw error;
 
@@ -50,9 +54,9 @@ d3.csv('data/bloodstream.csv', function(error, data) {
               return d[0] + d[1];
             });
           })])
-          .range([5, billsHeight]);
+          .range([5, 250]);
 
-          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - 180).tickPadding(5);
+          let victimAxis = d3.axisLeft(y).ticks(4).tickSize(billsWidth - window.innerWidth * 0.15).tickPadding(10);
 
           // console.log(y.domain())
 
@@ -86,7 +90,7 @@ d3.csv('data/bloodstream.csv', function(error, data) {
 
           //append the x axis
           stream.append("g")
-          .call(timelineAxis)
+          .call(bloodtimeAxis)
           .classed("timelineAxis", true);
 
           //append the x axis
