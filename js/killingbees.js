@@ -2,7 +2,7 @@ let killingbees = document.getElementById("killingbees");
 
 let width = d3.selectAll("#killingbees").node().getBoundingClientRect().width,
 height = 600,
-padding = 100; 
+padding = window.innerWidth * 0.08; 
 
     let svg = d3.select('#killingbees').append('svg')
     .attr('width', width)
