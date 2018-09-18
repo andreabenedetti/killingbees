@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+console.log("Drawing famous cases");
+
+
 // initializzazione delle variabili
 let celebSel = d3.select("#celeb")
 
@@ -157,3 +161,5 @@ d3.tsv("data/celeberrimi.tsv", function(error, data) {
 	})
 	
 })
+
+});

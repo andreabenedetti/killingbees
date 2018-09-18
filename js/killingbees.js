@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+console.log("Drawing killing bees");
+
+
 let killingbees = document.getElementById("killingbees");
 
 let width = d3.selectAll("#killingbees").node().getBoundingClientRect().width,
@@ -424,3 +428,5 @@ padding = window.innerWidth * 0.08;
     })
 
   })
+
+});

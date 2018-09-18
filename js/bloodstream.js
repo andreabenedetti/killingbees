@@ -5,6 +5,8 @@
 // plotSvg.setAttribute("width", width);
 // let height = Math.round(width / 2);
 // plotSvg.setAttribute("height", height);
+$( document ).ready(function() {
+console.log("Drawing bloodstream");
 
 let bloodstream = d3.select("#bloodstream").append("svg")
 .attr("width", billsWidth)
@@ -100,3 +102,5 @@ d3.csv('data/bloodstream.csv', function(error, data) {
           .classed("bloodAxis", true);
 
         });
+
+});
