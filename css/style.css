@@ -421,9 +421,6 @@ hr {
 }
 
 #detCont {
-  width: 90%;
-  position: fixed;
-  bottom: 0;
   z-index: 9999;
   pointer-events: none;
 }
@@ -688,7 +685,7 @@ button:focus {
 
 .mucchi {
   margin-top: 2rem;
-  /*border-bottom: 1px solid #010A0A;*/
+  border-bottom: 1px solid #010A0A;
 }
 
 .mucchi img {
@@ -714,23 +711,6 @@ button:focus {
 
 .total {
   opacity: 0.4;
-}
-
-
-
-/* -----
-Methodology
------ */
-
-#methodology {
-  background: snow;
-  font-size: 1rem;
-  text-transform: none;
-}
-
-#methodology a h4:before {
-  content:"←";
-  margin-right: 1rem;
 }
 
 /* LOADER */
@@ -796,5 +776,11 @@ Methodology
 
   .citation {
     font-size: 1.3rem;
+  }
+
+  #detCont {
+    position: fixed;
+    bottom: 0;
+    left: 5%;
   }
 }

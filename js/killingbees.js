@@ -146,7 +146,6 @@ padding = window.innerWidth * 0.08;
         return x(d[data_setX])
       }).strength(0.99))
       .force('y', d3.forceY( height / 2 ).strength(0.99))
-
       .force('collide', d3.forceCollide(function(d) { 
         return size(d.kills) + 1 
       }).iterations(32))

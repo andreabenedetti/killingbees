@@ -94,7 +94,7 @@ let interpolators = [
     .attr("y", 0);
 
     colorKey.selectAll("legend")
-    .data(d3.range(200), function(d) { console.log(d); })
+    .data(d3.range(200), function(d) { })
     .enter().append("rect")
     .classed(".scale", true)
     .attr("x", function(d, i) { return i; })
