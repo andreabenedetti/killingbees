@@ -32,7 +32,7 @@ padding = window.innerWidth * 0.08;
 
 
     let y0 = d3.scalePoint()
-    .domain( function(d) { 
+    .domain( function(d) {
       console.log(d.data)
       return d.data } )
 
@@ -80,31 +80,31 @@ padding = window.innerWidth * 0.08;
     d3.csv("data/shootings.csv", function(error, data) {
       if (error) throw error;
 
-      x.domain(d3.extent(data, function(d) { 
+      x.domain(d3.extent(data, function(d) {
         d.value = parseDate(d.value);
         d.value = +d.value;
         return d.value;
       }));
 
-      x1.domain(d3.extent(data, function(d) { 
+      x1.domain(d3.extent(data, function(d) {
         d.age = +d.age;
         return d.age;
       }));
 
-      x2.domain(d3.extent(data, function(d) { 
+      x2.domain(d3.extent(data, function(d) {
         d.kills = +d.kills;
         return d.kills;
       }));
 
       // console.log(JSON.stringify(data, null, "\t"));
 
-      y.domain(d3.extent(data, function(d) { 
+      y.domain(d3.extent(data, function(d) {
         d.lat = +d.lat;
         return d.lat; }
 
         ));
 
-      size.domain(d3.extent(data, function(d) { 
+      size.domain(d3.extent(data, function(d) {
 
         return d.kills; }
 
@@ -150,14 +150,14 @@ padding = window.innerWidth * 0.08;
         return x(d[data_setX])
       }).strength(0.99))
       .force('y', d3.forceY( height / 2 ).strength(0.99))
-      .force('collide', d3.forceCollide(function(d) { 
-        return size(d.kills) + 1 
+      .force('collide', d3.forceCollide(function(d) {
+        return size(d.kills) + 1
       }).iterations(32))
       .alphaDecay(0)
       .alpha(0.1)
-      .on('tick', tick) 
+      .on('tick', tick)
 
-      let init_decay; 
+      let init_decay;
       init_decay = setTimeout(function(){
         console.log('init alpha decay')
         simulation.alphaDecay(0.1);
@@ -176,12 +176,12 @@ padding = window.innerWidth * 0.08;
       .classed("info", true)
       .classed("date", true)
       .text(formatDate(d.value))
-      
+
       tooltip.append("p")
       .classed("info", true)
       .text(d.kills + " victims")
       .attr("transform", "translate(0, " + 12 + ")")
-      
+
       tooltip.append("p")
       .classed("info", true)
       .text("in a " + d.location + " location, ")
@@ -373,8 +373,8 @@ padding = window.innerWidth * 0.08;
         }
       }))
 
-      simulation.force('collide', d3.forceCollide(function(d) { 
-        return size(d.kills) + 1 
+      simulation.force('collide', d3.forceCollide(function(d) {
+        return size(d.kills) + 1
       }).iterations(32))
 
       simulation
